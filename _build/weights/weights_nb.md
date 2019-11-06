@@ -61,17 +61,130 @@ tessellation = momepy.Tessellation(buildings, unique_id='uID', limit=limit).tess
 {:.output_stream}
 ```
 Loop 1 out of 2.
+```
+</div>
+</div>
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
+Identifying changes: 100%|██████████| 2932/2932 [00:00<00:00, 3906.61it/s]
+Changing geometry: 100%|██████████| 31/31 [00:00<00:00, 88.81it/s]
+```
+</div>
+</div>
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
 Loop 2 out of 2.
+```
+</div>
+</div>
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
+Identifying changes: 100%|██████████| 2520/2520 [00:00<00:00, 4497.14it/s]
+Changing geometry: 100%|██████████| 2/2 [00:00<00:00, 92.84it/s]
+```
+</div>
+</div>
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
 Inward offset...
 Discretization...
+```
+</div>
+</div>
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
+  1%|▏         | 37/2521 [00:00<00:06, 369.65it/s]```
+</div>
+</div>
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
 Generating input point array...
+```
+</div>
+</div>
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
+100%|██████████| 2521/2521 [00:03<00:00, 642.97it/s]
+```
+</div>
+</div>
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
 Generating Voronoi diagram...
 Generating GeoDataFrame...
+```
+</div>
+</div>
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
+Vertices to Polygons: 100%|██████████| 267595/267595 [00:08<00:00, 32847.04it/s]
+```
+</div>
+</div>
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
 Dissolving Voronoi polygons...
 Preparing limit for edge resolving...
 Building R-tree...
+```
+</div>
+</div>
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
+  5%|▌         | 20/371 [00:00<00:01, 193.58it/s]```
+</div>
+</div>
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
 Identifying edge cells...
+```
+</div>
+</div>
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
+100%|██████████| 371/371 [00:02<00:00, 170.89it/s]
+ 11%|█         | 25/238 [00:00<00:00, 246.20it/s]```
+</div>
+</div>
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
 Cutting...
+```
+</div>
+</div>
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
+100%|██████████| 238/238 [00:00<00:00, 266.58it/s]
 ```
 </div>
 </div>
@@ -109,6 +222,14 @@ tessellation['neighbours'] = momepy.Neighbors(tessellation, sw3,'uID').n
 ```
 </div>
 
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
+100%|██████████| 2518/2518 [00:01<00:00, 1689.32it/s]
+```
+</div>
+</div>
 </div>
 
 
@@ -158,6 +279,17 @@ dist400 = libpysal.weights.DistanceBand.from_dataframe(buildings, 400,
 ```
 </div>
 
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
+/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/libpysal/weights/weights.py:165: UserWarning: The weights matrix is not fully connected: 
+ There are 2 disconnected components.
+ There is 1 island with id: 324.
+  warnings.warn(message)
+```
+</div>
+</div>
 </div>
 
 
@@ -174,6 +306,14 @@ tessellation['neighbours400'] = momepy.Neighbors(tessellation, dist400, 'uID').n
 ```
 </div>
 
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
+100%|██████████| 2518/2518 [00:00<00:00, 11139.69it/s]
+```
+</div>
+</div>
 </div>
 
 
@@ -229,6 +369,14 @@ tessellation['neighboursKNN'] = momepy.Neighbors(tessellation, knn,'uID').n
 ```
 </div>
 
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
+100%|██████████| 2518/2518 [00:00<00:00, 8391.73it/s]
+```
+</div>
+</div>
 </div>
 
 
