@@ -1,0 +1,127 @@
+# This file contains the order and numbering for all sections in the book.
+#
+# It is a sample TOC file to help you get started. Fill it out with entries
+# for your own content.
+#
+# Each entry has the following schema:
+#
+# - title: mytitle   # Title of chapter or section
+#   url: /myurl  # URL of section relative to the /content/ folder.
+#   sections:  # Contains a list of more entries that make up the chapter's sections
+#   not_numbered: true  # if the section shouldn't have a number in the sidebar
+#     (e.g. Introduction or appendices)
+#   expand_sections: true  # if you'd like the sections of this chapter to always
+#     be expanded in the sidebar.
+#   external: true  # Whether the URL is an external link or points to content in the book
+#
+# Below are some special values that trigger specific behavior:
+# - search: true  # Will provide a link to a search page
+# - divider: true  # Will insert a divider in the sidebar
+# - header: My Header  # Will insert a header with no link in the sidebar
+#
+# See the links below for an example.
+
+# Top-level page
+- title: Home
+  url: /intro
+  not_numbered: true
+
+
+# A chapter w/ a collection of sections beneath it
+- title: Getting started
+  url: /getting_started
+  not_numbered: true
+
+- title: Data structure
+  url: /data_structure
+  not_numbered: true
+
+- title: Generating morphological elements
+  url: /elements/elements
+  not_numbered: true
+  expand_sections: false
+  sections:
+  - title: Morphological tessellation
+    url: /elements/tessellation
+    not_numbered: true
+  - title: Tessellation-based blocks
+    url: /elements/blocks
+    not_numbered: true
+  - title: Linking elements together
+    url: /elements/links
+    not_numbered: true
+
+- title: Calculating simple characters
+  url: /simple/simple
+  not_numbered: true
+  expand_sections: false
+  sections:
+  - title: Dimension
+    url: /simple/dimension
+    not_numbered: true
+  - title: Shape
+    url: /simple/shape
+    not_numbered: true
+
+- title: Characters based on multiple geodataframes
+  url: /combined/combined
+  not_numbered: true
+  expand_sections: false
+  sections:
+  - title: Measuring spatial distribution
+    url: /combined/distribution
+    not_numbered: true
+  - title: Measuring density
+    url: /combined/intensity
+    not_numbered: true
+
+- title: Using spatial weights matrix
+  url: /weights/weights
+  not_numbered: true
+  expand_sections: false
+  sections:
+  - title: Generating spatial weights
+    url: /weights/weights_nb
+    not_numbered: true
+  - title: Examples of usage
+    url: /weights/examples
+    not_numbered: true
+  - title: Measuring diversity
+    url: /weights/diversity
+    not_numbered: true
+  - title: Using two spatial weights matrices
+    url: /weights/two
+    not_numbered: true
+
+- title: Network analysis
+  url: /graph/graph
+  not_numbered: true
+  expand_sections: false
+  sections:
+  - title: Converting from GeoDataFrame to Graph and back
+    url: /graph/convert
+    not_numbered: true
+  - title: Network analysis
+    url: /graph/network
+    not_numbered: true
+  - title: Multiple Centrality Assessment
+    url: /graph/centrality
+    not_numbered: true
+
+# Divider for meta-pages and content page
+- divider: true
+
+# Adds a searchbar link
+- title: Search
+  search: true
+
+- title: momepy API documentation
+  url: https://docs.momepy.org
+  external: true
+  not_numbered: true
+
+# External link
+- title: GitHub repository
+  url: https://github.com/martinfleis/momepy
+  external: true
+  not_numbered: true
