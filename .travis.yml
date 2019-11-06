@@ -16,6 +16,6 @@ install:
   - conda env create -f environment.yml
   - source activate momepy_guide
   - conda list
-  - python -m ipykernel install --user --name momepy_guide --display-name "Python (momepy_guide)"
+  - python -m ipykernel install --user --name mmp_guide --display-name "Python (momepy_guide)"
 
 script: jupyter-book build --execute .
