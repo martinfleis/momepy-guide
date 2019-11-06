@@ -12,6 +12,7 @@ dependencies:
   - rtree
   - osmnx
   - jupyter
+  - pip
   - pip:
     - inequality
     - jupyter-book
