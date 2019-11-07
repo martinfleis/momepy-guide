@@ -18,4 +18,4 @@ install:
   - conda list
   - python -m ipykernel install --user --name mmp_guide --display-name "Python (momepy_guide)"
 
-script: jupyter-book build --execute .
+script: travis_wait jupyter-book build --execute .
