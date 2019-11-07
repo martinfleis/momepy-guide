@@ -1,4 +1,4 @@
-name: binder
+name: momepy_guide
 channels:
   - conda-forge
 dependencies:
@@ -8,9 +8,12 @@ dependencies:
   - networkx
   - tqdm
   - mapclassify
-  - momepy
   - matplotlib
   - rtree
   - osmnx
+  - jupyter
+  - pip
   - pip:
-    - inequality
+   - inequality
+   - jupyter-book
+   - git+https://github.com/martinfleis/momepy.git
