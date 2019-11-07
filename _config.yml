@@ -22,8 +22,8 @@ email: martin@martinfleischmann.net
 description: >-
   This is an user guide for Urban Morphology Measuring Toolkit called momepy.
 
-baseurl: /  # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
-url: https://martinfleis.github.io/momepy-guide/ # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/momepy-guide"  # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
+url: "https://martinfleis.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 
 
 #######################################################################################
@@ -54,7 +54,7 @@ use_jupyterlab: false                     # If 'true', interact links will use J
 # Jupyterhub link settings
 use_jupyterhub_button: false              # If 'true', display a button that will direct users to a JupyterHub (that you provide)
 jupyterhub_url: ''                     # The URL for your JupyterHub. If no URL, use ""
-jupyterhub_interact_text: Interact             # The text that interact buttons will contain.
+jupyterhub_interact_text: "Interact"             # The text that interact buttons will contain.
 
 # Binder link settings
 use_binder_button: false                 # If 'true', add a binder button for interactive links
@@ -67,16 +67,16 @@ binderhub_interact_text: Interact              # The text that interact buttons 
 
 # Thebelab settings
 use_thebelab_button: false               # If 'true', display a button to allow in-page running code cells with Thebelab
-thebelab_button_text: Thebelab                 # The text to display inside the Thebelab initialization button
-codemirror_theme: abcdef                     # Theme for codemirror cells, for options see https://codemirror.net/doc/manual.html#config
+thebelab_button_text: "Thebelab"                 # The text to display inside the Thebelab initialization button
+codemirror_theme: "abcdef"                     # Theme for codemirror cells, for options see https://codemirror.net/doc/manual.html#config
 
 # nbinteract settings
 use_show_widgets_button: true                # If 'true', display a button to allow in-page running code cells with nbinteract
 
 # Download settings
 use_download_button: true                # If 'true', display a button to download a zip file for the notebook
-download_button_text: Download                # The text that download buttons will contain
-download_page_header: Made with Jupyter Book                # A header that will be displayed at the top of and PDF-printed page
+download_button_text: "Download"                # The text that download buttons will contain
+download_page_header: "Made with Jupyter Book"                # A header that will be displayed at the top of and PDF-printed page
 
 #######################################################################################
 # Jupyter book extensions and additional features
@@ -91,11 +91,11 @@ scholar:
 # Navigate to https://analytics.google.com, add a new property for your jupyter book and copy the tracking id here.
 google_analytics:
   mytrackingcode: ''
-content_folder_name: content           # The folder where your raw content (notebooks/markdown files) are located
-images_url: /assets/images                   # Path to static image files
-css_url: /assets/css                      # Path to static CSS files
-js_url: /assets/js                       # Path to JS files
-custom_static_url: /assets/custom            # Path to user's custom CSS/JS files
+content_folder_name       : "content"  # The folder where your raw content (notebooks/markdown files) are located
+images_url                : "/assets/images" # Path to static image files
+css_url                   : "/assets/css" # Path to static CSS files
+js_url                    : "/assets/js" # Path to JS files
+custom_static_url         : "/assets/custom" # Path to user's custom CSS/JS files
 
 
 #######################################################################################
