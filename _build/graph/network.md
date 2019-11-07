@@ -4,15 +4,13 @@ kernel_name: mmp_guide
 has_widgets: false
 title: 'Network analysis'
 prev_page:
-  url: /graph/convert.html
+  url: /graph/convert
   title: 'Converting from GeoDataFrame to Graph and back'
 next_page:
-  url: /graph/centrality.html
+  url: /graph/centrality
   title: 'Multiple Centrality Assessment'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # Network analysis
 
 Graph analysis offers three modes, of which the first two are used within `momepy` (as per v0.1):

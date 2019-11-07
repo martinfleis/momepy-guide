@@ -4,15 +4,13 @@ kernel_name: mmp_guide
 has_widgets: false
 title: 'Converting from GeoDataFrame to Graph and back'
 prev_page:
-  url: /graph/graph.html
+  url: /graph/graph
   title: 'Network analysis'
 next_page:
-  url: /graph/network.html
+  url: /graph/network
   title: 'Network analysis'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # Converting from geodataframe to graph and back
 
 The model situation expects to have all input data for analysis in `GeoDataFrames`, including street network (e.g. from shapefile).

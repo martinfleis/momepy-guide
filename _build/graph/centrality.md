@@ -4,15 +4,13 @@ kernel_name: geo_dev
 has_widgets: false
 title: 'Multiple Centrality Assessment'
 prev_page:
-  url: /graph/network.html
+  url: /graph/network
   title: 'Network analysis'
 next_page:
   url: https://docs.momepy.org
   title: 'momepy API documentation'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # Multiple Centrality Assessment
 
 Multiple Centrality Assessment (MCA) is an approach to street network analysis developed by Porta and Latora (2006). It's main aim is to understand the structure of street network of our cities from the perspective of the importance and position of each street/intersection within the whole network as expressed by various centralities. Momepy can do all types of MCA-based centrality analysis as were developed through the years.

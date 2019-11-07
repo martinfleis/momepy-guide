@@ -1,10 +1,10 @@
 ---
 title: 'Characters based on multiple geodataframes'
 prev_page:
-  url: /simple/shape.html
+  url: /simple/shape
   title: 'Shape'
 next_page:
-  url: /combined/distribution.html
+  url: /combined/distribution
   title: 'Measuring spatial distribution'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---

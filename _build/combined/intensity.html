@@ -1,0 +1,513 @@
+---
+interact_link: content/combined/intensity.ipynb
+kernel_name: mmp_guide
+has_widgets: false
+title: |-
+  Measuring density
+prev_page:
+  url: /combined/distribution.html
+  title: |-
+    Measuring spatial distribution
+next_page:
+  url: /weights/weights.html
+  title: |-
+    Using spatial weights matrix
+suffix: .ipynb
+
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+    <main class="jupyter-page">
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Measuring-density">Measuring density<a class="anchor-link" href="#Measuring-density"> </a></h1><p>Measuring density is a typical exercise in urban analytics. <code>momepy</code> allows to measure different types (see <a href="https://docs.momepy.org/en/latest/api.html#intensity">API/Intensity</a>); this notebook will outline the main principles.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">momepy</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We will again use <code>osmnx</code> to get the data for our example and after preprocessing of building layer will generate tessellation.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">osmnx</span> <span class="k">as</span> <span class="nn">ox</span>
+
+<span class="n">point</span> <span class="o">=</span> <span class="p">(</span><span class="mf">40.731603</span><span class="p">,</span> <span class="o">-</span><span class="mf">73.977857</span><span class="p">)</span>
+<span class="n">dist</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">gdf</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">footprints</span><span class="o">.</span><span class="n">footprints_from_point</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="n">point</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="n">dist</span><span class="p">)</span>
+<span class="n">gdf_projected</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">project_gdf</span><span class="p">(</span><span class="n">gdf</span><span class="p">)</span>
+
+<span class="n">buildings</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">gdf_projected</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+                              <span class="n">compactness</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">islands</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">buildings</span><span class="p">[</span><span class="s1">&#39;uID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">unique_id</span><span class="p">(</span><span class="n">buildings</span><span class="p">)</span>
+<span class="n">limit</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">buffered_limit</span><span class="p">(</span><span class="n">buildings</span><span class="p">)</span>
+<span class="n">tessellation</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Tessellation</span><span class="p">(</span><span class="n">buildings</span><span class="p">,</span> <span class="n">unique_id</span><span class="o">=</span><span class="s1">&#39;uID&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span><span class="o">.</span><span class="n">tessellation</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Loop 1 out of 2.
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Identifying changes: 100%|██████████| 3201/3201 [00:00&lt;00:00, 3225.50it/s]
+Changing geometry: 100%|██████████| 20/20 [00:00&lt;00:00, 79.76it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Loop 2 out of 2.
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Identifying changes: 100%|██████████| 3167/3167 [00:00&lt;00:00, 3618.43it/s]
+Changing geometry: 100%|██████████| 2/2 [00:00&lt;00:00, 95.97it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Inward offset...
+Discretization...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>  2%|▏         | 77/3165 [00:00&lt;00:10, 301.77it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Generating input point array...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 3165/3165 [00:07&lt;00:00, 433.67it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Generating Voronoi diagram...
+Generating GeoDataFrame...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Vertices to Polygons: 100%|██████████| 496900/496900 [00:15&lt;00:00, 31813.89it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dissolving Voronoi polygons...
+Preparing limit for edge resolving...
+Building R-tree...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre> 23%|██▎       | 37/163 [00:00&lt;00:00, 368.03it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Identifying edge cells...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 163/163 [00:00&lt;00:00, 358.28it/s]
+ 42%|████▏     | 40/95 [00:00&lt;00:00, 394.86it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Cutting...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 95/95 [00:00&lt;00:00, 248.59it/s]
+/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/momepy/elements.py:429: UserWarning: Tessellation contains MultiPolygon elements. Initial objects should be edited. unique_id of affected elements: [833, 1980, 2871, 2876, 3132]
+  &#34;unique_id of affected elements: {}&#34;.format(list(uids))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input">
+
+<div class="cell border-box-sizing code_cell rendered tag_hide_input">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">tessellation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/combined/intensity_4_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We have some edge effect here as we are using the buffer as a limit for tessellation in the middle of the urban fabric, but for these examples, we can work with it anyway. Keep in mind that values on the edge of this area will be skewed.</p>
+<h2 id="Covered-Area-Ratio">Covered Area Ratio<a class="anchor-link" href="#Covered-Area-Ratio"> </a></h2><p>Covered area ratio, in our case measured on tessellation cells, requires <code>GeoDataFrame</code> containing spatial unit (cell, plot), and <code>GeoDataFrame</code> containing covering objects (buildings). On top of that, it currently requires passed areas for both gdfs and unique ID which links together spatial units and objects on them. We can either calculate areas before:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Area</span><span class="p">(</span><span class="n">tessellation</span><span class="p">)</span><span class="o">.</span><span class="n">area</span>
+<span class="n">buildings</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Area</span><span class="p">(</span><span class="n">buildings</span><span class="p">)</span><span class="o">.</span><span class="n">area</span>
+<span class="n">tess_car</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">AreaRatio</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">buildings</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;uID&#39;</span><span class="p">)</span>
+<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;CAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tess_car</span><span class="o">.</span><span class="n">ar</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/pandas/core/frame.py:4223: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  return super().rename(**kwargs)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Or we can pass <code>momepy.Area().area</code> directly:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tess_car</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">AreaRatio</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">buildings</span><span class="p">,</span>
+                            <span class="n">momepy</span><span class="o">.</span><span class="n">Area</span><span class="p">(</span><span class="n">tessellation</span><span class="p">)</span><span class="o">.</span><span class="n">area</span><span class="p">,</span>
+                            <span class="n">momepy</span><span class="o">.</span><span class="n">Area</span><span class="p">(</span><span class="n">buildings</span><span class="p">)</span><span class="o">.</span><span class="n">area</span><span class="p">,</span> <span class="s1">&#39;uID&#39;</span><span class="p">)</span>
+<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;CAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tess_car</span><span class="o">.</span><span class="n">ar</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input">
+
+<div class="cell border-box-sizing code_cell rendered tag_hide_input">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">tessellation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;CAR&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;quantiles&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/combined/intensity_9_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note: At the time of preparing this notebook, there was a duplicated building within the used area, causing the value 1.33.</p>
+<h2 id="Floor-Area-Ratio">Floor Area Ratio<a class="anchor-link" href="#Floor-Area-Ratio"> </a></h2><p>Because we know building heights for our <code>buildings</code> gdf, we can also calculate FAR. This part of New York has height data, only stored as strings, so we have to convert them to <code>floats</code> (or <code>int</code>) and fill <code>NaN</code> values with zero.</p>
+<p>FAR requires floor areas for building gdf instead of covered area.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">buildings</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">buildings</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="n">buildings</span><span class="p">[</span><span class="s1">&#39;floor_area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">FloorArea</span><span class="p">(</span><span class="n">buildings</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fa</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;FAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">AreaRatio</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">buildings</span><span class="p">,</span>
+                                       <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;floor_area&#39;</span><span class="p">,</span> <span class="s1">&#39;uID&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ar</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input">
+
+<div class="cell border-box-sizing code_cell rendered tag_hide_input">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">tessellation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;FAR&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;quantiles&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/combined/intensity_13_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Location-based density is described in <a href="weights/examples">examples using spatial weights</a>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+
+
+    </main>
+    

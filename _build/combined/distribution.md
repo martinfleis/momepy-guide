@@ -4,15 +4,13 @@ kernel_name: mmp_guide
 has_widgets: false
 title: 'Measuring spatial distribution'
 prev_page:
-  url: /combined/combined.html
+  url: /combined/combined
   title: 'Characters based on multiple geodataframes'
 next_page:
-  url: /combined/intensity.html
+  url: /combined/intensity
   title: 'Measuring density'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # Measuring spatial distribution
 
 Spatial distribution can be captured many ways. This notebook show couple of them, based on orientation and street corridor.

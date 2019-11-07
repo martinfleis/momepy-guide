@@ -4,15 +4,13 @@ kernel_name: mmp_guide
 has_widgets: false
 title: 'Dimension'
 prev_page:
-  url: /simple/simple.html
+  url: /simple/simple
   title: 'Calculating simple characters'
 next_page:
-  url: /simple/shape.html
+  url: /simple/shape
   title: 'Shape'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # Simple dimension characters
 
 While the majority of `momepy` functions require interaction of more `GeoDataFrames` or using spatial weights matrix, there are some which are calculated on single `GeoDataFrame` assessing the dimensions or shapes of features. This notebook illustrates this group on small part of Manhattan, New York.

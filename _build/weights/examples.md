@@ -4,15 +4,13 @@ kernel_name: mmp_guide
 has_widgets: false
 title: 'Examples of usage'
 prev_page:
-  url: /weights/weights_nb.html
+  url: /weights/weights_nb
   title: 'Generating spatial weights'
 next_page:
-  url: /weights/diversity.html
+  url: /weights/diversity
   title: 'Measuring diversity'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # Examples of usage of spatial weights
 
 Spatial weights are used across `momepy`. This notebook will illustrate its use on three examples.

@@ -4,15 +4,13 @@ kernel_name: mmp_guide
 has_widgets: false
 title: 'Using two spatial weights matrices'
 prev_page:
-  url: /weights/diversity.html
+  url: /weights/diversity
   title: 'Measuring diversity'
 next_page:
-  url: /graph/graph.html
+  url: /graph/graph
   title: 'Network analysis'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # Using two spatial weights matrices
 
 Some functions are using spatial weights for two different purposes. Therefore two matrices have to be passed. We will illustrate this case measuring building adjacency and mean interbuilding distance. 

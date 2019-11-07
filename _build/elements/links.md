@@ -4,15 +4,13 @@ kernel_name: mmp_guide
 has_widgets: false
 title: 'Linking elements together'
 prev_page:
-  url: /elements/blocks.html
+  url: /elements/blocks
   title: 'Tessellation-based blocks'
 next_page:
-  url: /simple/simple.html
+  url: /simple/simple
   title: 'Calculating simple characters'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # Linking elements together
 
 As explained in the Data Structure chapter, `momepy` relies on links between different morphological elements. Each element needs ID, and each of the small-scale elements also needs to know the ID of the relevant higher-scale element. The case of block ID is explained in the previous chapter, `momepy.Blocks` generates it together with blocks gdf.

@@ -3,10 +3,10 @@ redirect_from:
   - "/data-structure"
 title: 'Data structure'
 prev_page:
-  url: /getting_started.html
+  url: /getting_started
   title: 'Getting started'
 next_page:
-  url: /elements/elements.html
+  url: /elements/elements
   title: 'Generating morphological elements'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---

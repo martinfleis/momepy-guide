@@ -4,15 +4,13 @@ kernel_name: mmp_guide
 has_widgets: false
 title: 'Morphological tessellation'
 prev_page:
-  url: /elements/elements.html
+  url: /elements/elements
   title: 'Generating morphological elements'
 next_page:
-  url: /elements/blocks.html
+  url: /elements/blocks
   title: 'Tessellation-based blocks'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # Generating morphological tessellation
 
 ## Using exemplary data

@@ -1,10 +1,10 @@
 ---
 title: 'Generating morphological elements'
 prev_page:
-  url: /data_structure.html
+  url: /data_structure
   title: 'Data structure'
 next_page:
-  url: /elements/tessellation.html
+  url: /elements/tessellation
   title: 'Morphological tessellation'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---

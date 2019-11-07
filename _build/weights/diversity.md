@@ -4,15 +4,13 @@ kernel_name: mmp_guide
 has_widgets: false
 title: 'Measuring diversity'
 prev_page:
-  url: /weights/examples.html
+  url: /weights/examples
   title: 'Examples of usage'
 next_page:
-  url: /weights/two.html
+  url: /weights/two
   title: 'Using two spatial weights matrices'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # Measuring diversity
 
 As important diversity is for cities, as complicated is to capture it. `momepy` offers several options on how to do that using urban morphometrics. Generally, we can distinguish three types of diversity characters, based on:

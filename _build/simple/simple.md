@@ -1,10 +1,10 @@
 ---
 title: 'Calculating simple characters'
 prev_page:
-  url: /elements/links.html
+  url: /elements/links
   title: 'Linking elements together'
 next_page:
-  url: /simple/dimension.html
+  url: /simple/dimension
   title: 'Dimension'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---

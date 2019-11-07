@@ -1,10 +1,10 @@
 ---
 title: 'Using spatial weights matrix'
 prev_page:
-  url: /combined/intensity.html
+  url: /combined/intensity
   title: 'Measuring density'
 next_page:
-  url: /weights/weights_nb.html
+  url: /weights/weights_nb
   title: 'Generating spatial weights'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---

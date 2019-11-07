@@ -1,10 +1,10 @@
 ---
 title: 'Network analysis'
 prev_page:
-  url: /weights/two.html
+  url: /weights/two
   title: 'Using two spatial weights matrices'
 next_page:
-  url: /graph/convert.html
+  url: /graph/convert
   title: 'Converting from GeoDataFrame to Graph and back'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---

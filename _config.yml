@@ -22,17 +22,21 @@ email: martin@martinfleischmann.net
 description: >-
   This is an user guide for Urban Morphology Measuring Toolkit called momepy.
 
-baseurl: /               # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
-url: http://guide.momepy.org             # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: /  # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
+url: http://guide.momepy.org   # the base hostname & protocol for your site, e.g. http://example.com
 
 
 #######################################################################################
 # Jupyter Book settings
 
+# Main page settings
+footer_text: This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The
+  Jupyter Book Community</a>
+
 # Sidebar settings
 show_sidebar: true                # Show the sidebar. Only set to false if your only wish to host a single page.
 collapse_inactive_chapters: true  # Whether to collapse the inactive chapters in the sidebar
-textbook_logo: content/images/logo/logo-mm.png               # A logo to be displayed at the top of your textbook sidebar
+textbook_logo: content/images/logo/logo-mm.png    # A logo to be displayed at the top of your textbook sidebar. Should be square
 textbook_logo_link: https://guide.momepy.org                    # A link for the logo.
 sidebar_footer_text: Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter
   Book</a>
@@ -53,16 +57,16 @@ jupyterhub_url: ''                     # The URL for your JupyterHub. If no URL,
 jupyterhub_interact_text: Interact             # The text that interact buttons will contain.
 
 # Binder link settings
-use_binder_button: False                 # If 'true', add a binder button for interactive links
-binderhub_url: https://mybinder.org/                        # The URL for your BinderHub. If no URL, use ""
+use_binder_button: false                 # If 'true', add a binder button for interactive links
+binderhub_url: https://mybinder.org/                       # The URL for your BinderHub. If no URL, use ""
 binder_repo_base: https://github.com/                     # The site on which the textbook repository is hosted
-binder_repo_org: martinfleis                     # The username or organization that owns this repository
-binder_repo_name: momepy                        # The name of the repository on the web
+binder_repo_org: martinfleis                  # The username or organization that owns this repository
+binder_repo_name: momepy                           # The name of the repository on the web
 binder_repo_branch: gh-pages                   # The branch on which your textbook is hosted.
 binderhub_interact_text: Interact              # The text that interact buttons will contain.
 
 # Thebelab settings
-use_thebelab_button: false                # If 'true', display a button to allow in-page running code cells with Thebelab
+use_thebelab_button: false               # If 'true', display a button to allow in-page running code cells with Thebelab
 thebelab_button_text: Thebelab                 # The text to display inside the Thebelab initialization button
 codemirror_theme: abcdef                     # Theme for codemirror cells, for options see https://codemirror.net/doc/manual.html#config
 
@@ -72,6 +76,7 @@ use_show_widgets_button: true                # If 'true', display a button to al
 # Download settings
 use_download_button: true                # If 'true', display a button to download a zip file for the notebook
 download_button_text: Download                # The text that download buttons will contain
+download_page_header: Made with Jupyter Book                # A header that will be displayed at the top of and PDF-printed page
 
 #######################################################################################
 # Jupyter book extensions and additional features
@@ -85,11 +90,7 @@ scholar:
 
 # Navigate to https://analytics.google.com, add a new property for your jupyter book and copy the tracking id here.
 google_analytics:
-  mytrackingcode:
-
-#######################################################################################
-# Jupyter book settings you probably don't need to change
-
+  mytrackingcode: ''
 content_folder_name: content           # The folder where your raw content (notebooks/markdown files) are located
 images_url: /assets/images                   # Path to static image files
 css_url: /assets/css                      # Path to static CSS files
@@ -144,4 +145,4 @@ plugins:
 - jekyll-scholar
 
 # Jupyter Book version - DO NOT CHANGE THIS. It is generated when a new book is created
-jupyter_book_version: 0.5.1
+jupyter_book_version: 0.6.3

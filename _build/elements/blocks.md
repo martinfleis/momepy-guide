@@ -4,15 +4,13 @@ kernel_name: mmp_guide
 has_widgets: false
 title: 'Tessellation-based blocks'
 prev_page:
-  url: /elements/tessellation.html
+  url: /elements/tessellation
   title: 'Morphological tessellation'
 next_page:
-  url: /elements/links.html
+  url: /elements/links
   title: 'Linking elements together'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # Generating tessellation-based blocks
 
 ## Ideal case with ideal data

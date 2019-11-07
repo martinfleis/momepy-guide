@@ -4,15 +4,13 @@ kernel_name: mmp_guide
 has_widgets: false
 title: 'Measuring density'
 prev_page:
-  url: /combined/distribution.html
+  url: /combined/distribution
   title: 'Measuring spatial distribution'
 next_page:
-  url: /weights/weights.html
+  url: /weights/weights
   title: 'Using spatial weights matrix'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # Measuring density
 
 Measuring density is a typical exercise in urban analytics. `momepy` allows to measure different types (see [API/Intensity](https://docs.momepy.org/en/latest/api.html#intensity)); this notebook will outline the main principles.

@@ -1,0 +1,862 @@
+---
+interact_link: content/weights/diversity.ipynb
+kernel_name: mmp_guide
+has_widgets: false
+title: |-
+  Measuring diversity
+prev_page:
+  url: /weights/examples.html
+  title: |-
+    Examples of usage
+next_page:
+  url: /weights/two.html
+  title: |-
+    Using two spatial weights matrices
+suffix: .ipynb
+
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+    <main class="jupyter-page">
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Measuring-diversity">Measuring diversity<a class="anchor-link" href="#Measuring-diversity"> </a></h1><p>As important diversity is for cities, as complicated is to capture it. <code>momepy</code> offers several options on how to do that using urban morphometrics. Generally, we can distinguish three types of diversity characters, based on:</p>
+<ol>
+<li>Absolute values</li>
+<li>Relative values</li>
+<li>Categorization (binning)</li>
+</ol>
+<p>This notebook provides examples from each of them.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">momepy</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We will again use <code>osmnx</code> to get the data for our example and after preprocessing of building layer will generate tessellation.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">osmnx</span> <span class="k">as</span> <span class="nn">ox</span>
+
+<span class="n">gdf</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">footprints</span><span class="o">.</span><span class="n">footprints_from_place</span><span class="p">(</span><span class="n">place</span><span class="o">=</span><span class="s1">&#39;Kahla, Germany&#39;</span><span class="p">)</span>
+<span class="n">gdf_projected</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">project_gdf</span><span class="p">(</span><span class="n">gdf</span><span class="p">)</span>
+
+<span class="n">buildings</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">gdf_projected</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+                              <span class="n">compactness</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">islands</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">buildings</span><span class="p">[</span><span class="s1">&#39;uID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">unique_id</span><span class="p">(</span><span class="n">buildings</span><span class="p">)</span>
+<span class="n">limit</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">buffered_limit</span><span class="p">(</span><span class="n">buildings</span><span class="p">)</span>
+<span class="n">tessellation</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Tessellation</span><span class="p">(</span><span class="n">buildings</span><span class="p">,</span> <span class="n">unique_id</span><span class="o">=</span><span class="s1">&#39;uID&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span><span class="o">.</span><span class="n">tessellation</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Loop 1 out of 2.
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Identifying changes: 100%|██████████| 2917/2917 [00:00&lt;00:00, 2971.21it/s]
+Changing geometry: 100%|██████████| 31/31 [00:00&lt;00:00, 96.00it/s] 
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Loop 2 out of 2.
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Identifying changes: 100%|██████████| 2505/2505 [00:00&lt;00:00, 4682.18it/s]
+Changing geometry: 100%|██████████| 2/2 [00:00&lt;00:00, 107.62it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Inward offset...
+Discretization...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>  1%|▏         | 35/2506 [00:00&lt;00:07, 349.88it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Generating input point array...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 2506/2506 [00:04&lt;00:00, 567.77it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Generating Voronoi diagram...
+Generating GeoDataFrame...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Vertices to Polygons: 100%|██████████| 263754/263754 [00:07&lt;00:00, 34091.54it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dissolving Voronoi polygons...
+Preparing limit for edge resolving...
+Building R-tree...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre> 13%|█▎        | 49/373 [00:00&lt;00:00, 478.64it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Identifying edge cells...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 373/373 [00:00&lt;00:00, 418.77it/s]
+ 18%|█▊        | 44/238 [00:00&lt;00:00, 433.72it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Cutting...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 238/238 [00:00&lt;00:00, 362.37it/s]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Queen-contiguity">Queen contiguity<a class="anchor-link" href="#Queen-contiguity"> </a></h3><p>Morphological tessellation allows using contiguity-based weights matrix. While <code>libpysal.weights.contiguity.Queen</code> will do a classic Queen contiguity matrix; it might not be enough to capture proper context. For that reason, we can use <code>momepy.sw_high</code> to capture all neighbours within set topological distance <code>k</code>. More in <a href="weights_nb">Generating spatial weights</a>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sw3</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">sw_high</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">gdf</span><span class="o">=</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="s1">&#39;uID&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To have a character whose diversity can be measured, we can use the area of tessellation.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Area</span><span class="p">(</span><span class="n">tessellation</span><span class="p">)</span><span class="o">.</span><span class="n">area</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Range">Range<a class="anchor-link" href="#Range"> </a></h3><p>The range is as simple as it sounds; it measures the range of the values withing all neighbours as captured by <code>spatial_weights</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">area_rng</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Range</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span>
+                                        <span class="n">spatial_weights</span><span class="o">=</span><span class="n">sw3</span><span class="p">,</span> <span class="n">unique_id</span><span class="o">=</span><span class="s1">&#39;uID&#39;</span><span class="p">)</span>
+<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area_rng&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">area_rng</span><span class="o">.</span><span class="n">r</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 2503/2503 [00:04&lt;00:00, 592.94it/s]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input">
+
+<div class="cell border-box-sizing code_cell rendered tag_hide_input">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">tessellation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;area_rng&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Spectral_r&#39;</span><span class="p">)</span>
+<span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/weights/diversity_10_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>However, as we can see from the plot above, there is a massive effect of large-scale buildings, which can be seen as outliers. For that reason, we can define <code>rng</code> keyword argument to limit the range taken into account. To get the interquartile range:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">area_iqr</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Range</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span>
+                        <span class="n">spatial_weights</span><span class="o">=</span><span class="n">sw3</span><span class="p">,</span> <span class="n">unique_id</span><span class="o">=</span><span class="s1">&#39;uID&#39;</span><span class="p">,</span>
+                        <span class="n">rng</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">75</span><span class="p">))</span>
+<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area_IQR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">area_iqr</span><span class="o">.</span><span class="n">r</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 2503/2503 [00:03&lt;00:00, 683.55it/s]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input">
+
+<div class="cell border-box-sizing code_cell rendered tag_hide_input">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">tessellation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;area_IQR&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Spectral_r&#39;</span><span class="p">)</span>
+<span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/weights/diversity_13_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The effect of outliers has been successfully eliminated.</p>
+<h3 id="Theil-index">Theil index<a class="anchor-link" href="#Theil-index"> </a></h3><p>Theil index is a measure of inequality (as Gini index is). <code>momepy</code> is using <code>pysal</code>'s implementation of the Theil index to do the calculation.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">area_theil</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Theil</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span>
+                          <span class="n">spatial_weights</span><span class="o">=</span><span class="n">sw3</span><span class="p">,</span>
+                          <span class="n">unique_id</span><span class="o">=</span><span class="s1">&#39;uID&#39;</span><span class="p">)</span>
+<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area_Theil&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">area_theil</span><span class="o">.</span><span class="n">t</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 2503/2503 [00:06&lt;00:00, 361.37it/s]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input">
+
+<div class="cell border-box-sizing code_cell rendered tag_hide_input">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">tessellation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;area_Theil&#39;</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;fisherjenkssampled&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">)</span>
+<span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:482: UserWarning: Deprecated (2.1.0): Fisher_Jenks is being renamed to FisherJenks. Fisher_Jenks will be removed on 2020-01-31.
+  warn(self.message)
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/weights/diversity_16_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Again, the outlier effect is present. We can use the same keyword as above to limit it and measure the Theil index on the inter-decile range.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">area_id_theil</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Theil</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span>
+                             <span class="n">spatial_weights</span><span class="o">=</span><span class="n">sw3</span><span class="p">,</span>
+                             <span class="n">unique_id</span><span class="o">=</span><span class="s1">&#39;uID&#39;</span><span class="p">,</span>
+                             <span class="n">rng</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">90</span><span class="p">))</span>
+<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area_Theil_ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">area_id_theil</span><span class="o">.</span><span class="n">t</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 2503/2503 [00:03&lt;00:00, 738.36it/s]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input">
+
+<div class="cell border-box-sizing code_cell rendered tag_hide_input">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">tessellation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;area_Theil_ID&#39;</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;fisherjenkssampled&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">)</span>
+<span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/weights/diversity_19_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Simpson's-diversity-index">Simpson's diversity index<a class="anchor-link" href="#Simpson's-diversity-index"> </a></h3><p>Simpson's diversity index is one of the most used indices capturing diversity. However, we need to be careful using it for continuous values, as it depends on the binning of these values to categories. The effect of different binning could be significant. <code>momepy</code> uses Head/tail Breaks as a large number of morphometric characters follows power-law distribution (for which Head/tail Breaks are designed). However, you can use any binning provided by <code>mapclassify</code> (including user-defined). The default Head/tail Breaks:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">area_simpson</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Simpson</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span>
+                              <span class="n">spatial_weights</span><span class="o">=</span><span class="n">sw3</span><span class="p">,</span>
+                              <span class="n">unique_id</span><span class="o">=</span><span class="s1">&#39;uID&#39;</span><span class="p">)</span>
+<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area_simpson&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">area_simpson</span><span class="o">.</span><span class="n">s</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:86: DeprecationWarning: Call to deprecated function (or staticmethod) headTail_breaks. (use head_tail_breaks)
+  return headTail_breaks(values[values &gt;= mean], cuts)
+/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:86: DeprecationWarning: Call to deprecated function (or staticmethod) headTail_breaks. (use head_tail_breaks)
+  return headTail_breaks(values[values &gt;= mean], cuts)
+/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:86: DeprecationWarning: Call to deprecated function (or staticmethod) headTail_breaks. (use head_tail_breaks)
+  return headTail_breaks(values[values &gt;= mean], cuts)
+/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:86: DeprecationWarning: Call to deprecated function (or staticmethod) headTail_breaks. (use head_tail_breaks)
+  return headTail_breaks(values[values &gt;= mean], cuts)
+/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:86: DeprecationWarning: Call to deprecated function (or staticmethod) headTail_breaks. (use head_tail_breaks)
+  return headTail_breaks(values[values &gt;= mean], cuts)
+/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:86: DeprecationWarning: Call to deprecated function (or staticmethod) headTail_breaks. (use head_tail_breaks)
+  return headTail_breaks(values[values &gt;= mean], cuts)
+/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:86: DeprecationWarning: Call to deprecated function (or staticmethod) headTail_breaks. (use head_tail_breaks)
+  return headTail_breaks(values[values &gt;= mean], cuts)
+ 12%|█▏        | 299/2503 [00:00&lt;00:04, 480.03it/s]/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:804: RuntimeWarning: invalid value encountered in double_scalars
+  gadf = 1 - self.adcm / adam
+100%|██████████| 2503/2503 [00:04&lt;00:00, 554.52it/s]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input">
+
+<div class="cell border-box-sizing code_cell rendered tag_hide_input">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">tessellation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;area_simpson&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/weights/diversity_22_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And binning based on quantiles (into 7 bins of equal size):</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area_simpson_q7&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Simpson</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span>
+                                                 <span class="n">spatial_weights</span><span class="o">=</span><span class="n">sw3</span><span class="p">,</span>
+                                                 <span class="n">unique_id</span><span class="o">=</span><span class="s1">&#39;uID&#39;</span><span class="p">,</span>
+                                                 <span class="n">binning</span><span class="o">=</span><span class="s1">&#39;quantiles&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">s</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 2503/2503 [00:04&lt;00:00, 536.43it/s]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input">
+
+<div class="cell border-box-sizing code_cell rendered tag_hide_input">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">tessellation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;area_simpson_q7&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/weights/diversity_25_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Always consider whether your binning is the optimal one.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+
+
+    </main>
+    

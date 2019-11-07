@@ -6,15 +6,13 @@ kernel_name: mmp_guide
 has_widgets: false
 title: 'Generating spatial weights'
 prev_page:
-  url: /weights/weights.html
+  url: /weights/weights
   title: 'Using spatial weights matrix'
 next_page:
-  url: /weights/examples.html
+  url: /weights/examples
   title: 'Examples of usage'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # Generating spatial weights
 
 `momepy` is using `libpysal` to handle spatial weights, but also builds on top of it. This notebook will show how to use different weights.

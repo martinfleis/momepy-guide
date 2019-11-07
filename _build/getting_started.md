@@ -6,15 +6,13 @@ kernel_name: mmp_guide
 has_widgets: false
 title: 'Getting started'
 prev_page:
-  url: /intro.html
+  url: /intro
   title: 'Home'
 next_page:
-  url: /data_structure.html
+  url: /data_structure
   title: 'Data structure'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # Getting started
 
 ## An introduction to momepy

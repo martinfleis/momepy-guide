@@ -4,15 +4,13 @@ kernel_name: mmp_guide
 has_widgets: false
 title: 'Shape'
 prev_page:
-  url: /simple/dimension.html
+  url: /simple/dimension
   title: 'Dimension'
 next_page:
-  url: /combined/combined.html
+  url: /combined/combined
   title: 'Characters based on multiple geodataframes'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-
-
 # Simple shape characters
 
 While the majority of `momepy` functions require the interaction of more `GeoDataFrames` or using spatial weights matrix, there are some which are calculated on single `GeoDataFrame` assessing the dimensions or shapes of features. This notebook illustrates how to measure simple shape characters.
