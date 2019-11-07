@@ -1,0 +1,104 @@
+---
+redirect_from:
+  - "/data-structure"
+title: |-
+  Data structure
+prev_page:
+  url: /getting_started.html
+  title: |-
+    Getting started
+next_page:
+  url: /elements/elements.html
+  title: |-
+    Generating morphological elements
+suffix: .md
+
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+    <main class="jupyter-page">
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Data-Structure">Data Structure<a class="anchor-link" href="#Data-Structure"> </a></h1><p>Momepy is built on top of <a href="http://geopandas.org">geopandas</a> <code>GeoDataFrame</code> objects and, for network analysis, on <a href="https://networkx.github.io">networkx</a> <code>Graph</code>.</p>
+<p>For any kind of morphometric analysis, data needs to be provided as <code>GeoDataFrames</code>. Results of morphometric analysis from <code>momepy</code> can be generally returned as pandas <code>Series</code> to be added as
+a column of existing <code>GeoDataFrame</code>. All the detailes and attributes of each class are clearly described in the <a href="https://docs.momepy.org/en/latest/api.html">API</a>.</p>
+<h2 id="Morphometric-functions">Morphometric functions<a class="anchor-link" href="#Morphometric-functions"> </a></h2><p>Morphometric functions available in <code>momepy</code> could be divided into four different groups based on their approach to data requirements and outputs.</p>
+<ol>
+<li><p>Simple characters</p>
+<p>Simple morphometric characters are using single <code>GeoDataFrame</code> as a source of the data.</p>
+</li>
+<li><p>Relational characters</p>
+<p>Relational characters are based on relations between two or more <code>GeoDataFrames</code>. Typical example is <code>AreaRatio</code>, which requires a) features to be covered (e.g. land unit) and b) features which are covering them (e.g. buildings).</p>
+</li>
+<li><p>Network analysis</p>
+<p>Network analysis (<code>graph</code> module) characters are based on <code>networkx.Graph</code> and returns <code>networkx.Graph</code> with additional node or edge attributes.</p>
+</li>
+</ol>
+<h2 id="Morphological-elements">Morphological elements<a class="anchor-link" href="#Morphological-elements"> </a></h2><p>Additional modules (<code>elements</code> and <code>utils</code>) cover functions generating new morphological elements (like morphological tessellation) or links between them. For details, please refer to the <a href="https://docs.momepy.org/en/latest/api.html">API</a>.</p>
+<p>Majority of functions used within <code>momepy</code> is not limited to one type of morphological elements. However, the whole package is built with a specific set of elements in mind, based on the research done at the University of Strathclyde by the <a href="http://www.udsu-strath.com">Urban Design Studies Unit</a>. This is true especially for morphological tessellation, partitioning of space based on building footprints. Morphological tessellation can substitute plots for certain types of analysis and provide additional information, like the adjacency, for the other. More information on tessellation is in dedicated <a href="elements/tessellation">section</a> of this guide.</p>
+<p>Generally, we can work with any kind of morphological element which fits selected function, there is no restriction. Sometimes, where documentation refers to buildings, other elements like blocks can be used as well as long as the principle remains the same.</p>
+<p>For example, you can use <code>momepy</code> to do morphometric analysis of:</p>
+<ul>
+<li>buildings,</li>
+<li>plots,</li>
+<li>morphological cells,</li>
+<li>streets,<ul>
+<li>profiles,</li>
+<li>networks,</li>
+</ul>
+</li>
+<li>blocks,</li>
+</ul>
+<p>and more.</p>
+<h2 id="Links-between-elements">Links between elements<a class="anchor-link" href="#Links-between-elements"> </a></h2><p>When using more than one morphological element, <code>momepy</code> needs to understand what is the relationship between them. For this, it relies on <code>unique_id</code> attributes. It is expected, that every building lies on certain plot or morphological cell, on certain street or within certain block. To use <code>momepy</code>, each feature of each layer needs its own <code>unique_id</code>. Moreover, each feature also needs to bear <code>unique_id</code> of related elements. Consider following sample rows of <code>buildings_gdf</code>:</p>
+<table>
+<thead><tr>
+<th>building_id</th>
+<th>block_id</th>
+<th>network_edge_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>143</td>
+<td>22</td>
+</tr>
+<tr>
+<td>2</td>
+<td>143</td>
+<td>25</td>
+</tr>
+<tr>
+<td>3</td>
+<td>144</td>
+<td>25</td>
+</tr>
+<tr>
+<td>4</td>
+<td>144</td>
+<td>25</td>
+</tr>
+<tr>
+<td>5</td>
+<td>144</td>
+<td>29</td>
+</tr>
+</tbody>
+</table>
+<p>Each building has its own unique <code>building_id</code>, while more building share <code>block_id</code> of block they belong to. In this sense, in <code>blocks_gdf</code> each feature would have its own unique <code>block_id</code> used as a reference for <code>buildings_gdf</code>. In principle, elements on the smaller scale contains IDs of elements on the larger - blocks will not have building IDs.</p>
+<p>Momepy can generate unique ID using <code>momepy.unique_id()</code> and <a href="elements/links">link certain types of elements together</a>.</p>
+<h2 id="Spatial-weights">Spatial weights<a class="anchor-link" href="#Spatial-weights"> </a></h2><p>Unique IDs are also used as an ID within spatial weights matrices. Thanks to this, spatial weights generated on morphological tessellation (like Queen contiguity) can be directly used on buildings and vice versa. Detailed information on using spatial weights within momepy will be <a href="weights/weights">discussed later</a>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+
+
+    </main>
+    
