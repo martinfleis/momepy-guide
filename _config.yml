@@ -36,8 +36,8 @@ footer_text: This page was created by <a href="https://github.com/jupyter/jupyte
 # Sidebar settings
 show_sidebar: true                # Show the sidebar. Only set to false if your only wish to host a single page.
 collapse_inactive_chapters: true  # Whether to collapse the inactive chapters in the sidebar
-textbook_logo: images/logo/logo.png               # A logo to be displayed at the top of your textbook sidebar. Should be square
-textbook_logo_link: https://jupyterbook.org/                    # A link for the logo.
+textbook_logo: images/logo/logo-mm.png               # A logo to be displayed at the top of your textbook sidebar. Should be square
+textbook_logo_link: http://martinfleis.github.io/momepy-guide                    # A link for the logo.
 sidebar_footer_text: Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
 number_toc_chapters: true         # Whether to add numbers to chapterse in your Table of Contents. If true, you can control this at the Chapter level in _data/toc.yml
 
@@ -115,7 +115,7 @@ defaults:
     toc_icon: list-ul
     excerpt: ''
 
-favicon_path: images/logo/favicon.ico
+favicon_path: images/logo/favicon.png
 
 # Markdown Processing
 markdown: kramdown

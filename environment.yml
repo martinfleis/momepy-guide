@@ -1,0 +1,19 @@
+name: momepy_guide
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7
+  - geopandas
+  - libpysal
+  - networkx
+  - tqdm
+  - mapclassify
+  - matplotlib
+  - rtree
+  - osmnx
+  - jupyter
+  - pip
+  - pip:
+    - inequality
+    - jupyter-book
+    - git+https://github.com/martinfleis/momepy.git

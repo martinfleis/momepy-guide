@@ -111,10 +111,6 @@
 # Divider for meta-pages and content page
 - divider: true
 
-# Adds a searchbar link
-- title: Search
-  search: true
-
 - title: momepy API documentation
   url: https://docs.momepy.org
   external: true
