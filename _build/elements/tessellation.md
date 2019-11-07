@@ -116,27 +116,27 @@ buildings.head()
     <tr>
       <td>0</td>
       <td>1</td>
-      <td>POLYGON ((1603599.221 6464369.816, 1603602.984...</td>
+      <td>POLYGON ((1603599.221193187 6464369.815517657,...</td>
     </tr>
     <tr>
       <td>1</td>
       <td>2</td>
-      <td>POLYGON ((1603042.880 6464261.498, 1603038.961...</td>
+      <td>POLYGON ((1603042.87977405 6464261.497778866, ...</td>
     </tr>
     <tr>
       <td>2</td>
       <td>3</td>
-      <td>POLYGON ((1603044.650 6464178.035, 1603049.192...</td>
+      <td>POLYGON ((1603044.649753952 6464178.034552199,...</td>
     </tr>
     <tr>
       <td>3</td>
       <td>4</td>
-      <td>POLYGON ((1603036.557 6464141.467, 1603036.969...</td>
+      <td>POLYGON ((1603036.556826973 6464141.466502897,...</td>
     </tr>
     <tr>
       <td>4</td>
       <td>5</td>
-      <td>POLYGON ((1603082.387 6464142.022, 1603081.574...</td>
+      <td>POLYGON ((1603082.38706133 6464142.02187786, 1...</td>
     </tr>
   </tbody>
 </table>
@@ -193,96 +193,15 @@ tessellation = momepy.Tessellation(buildings, unique_id='uID', limit=limit)
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-  0%|          | 0/144 [00:00<?, ?it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Inward offset...
 Discretization...
 Generating input point array...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 144/144 [00:00<00:00, 336.75it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Generating Voronoi diagram...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Vertices to Polygons:  14%|█▎        | 4482/32914 [00:00<00:00, 44798.57it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Generating GeoDataFrame...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Vertices to Polygons: 100%|██████████| 32914/32914 [00:00<00:00, 33487.41it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Dissolving Voronoi polygons...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
- 55%|█████▍    | 29/53 [00:00<00:00, 287.32it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Preparing limit for edge resolving...
 Building R-tree...
 Identifying edge cells...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 53/53 [00:00<00:00, 313.75it/s]
-100%|██████████| 42/42 [00:00<00:00, 965.43it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Cutting...
 ```
 </div>
@@ -305,7 +224,7 @@ tessellation
 
 {:.output_data_text}
 ```
-<momepy.elements.Tessellation at 0x124ad8e80>
+<momepy.elements.Tessellation at 0x116afec18>
 ```
 
 
@@ -424,27 +343,27 @@ tessellation_gdf.head()
     <tr>
       <td>0</td>
       <td>1</td>
-      <td>POLYGON ((1603586.677 6464344.668, 1603578.491...</td>
+      <td>POLYGON ((1603586.677274485 6464344.667944215,...</td>
     </tr>
     <tr>
       <td>1</td>
       <td>2</td>
-      <td>POLYGON ((1603048.399 6464176.181, 1603047.831...</td>
+      <td>POLYGON ((1603048.399497852 6464176.180701573,...</td>
     </tr>
     <tr>
       <td>2</td>
       <td>3</td>
-      <td>POLYGON ((1603071.343 6464158.863, 1603071.179...</td>
+      <td>POLYGON ((1603071.342637536 6464158.863329805,...</td>
     </tr>
     <tr>
       <td>3</td>
       <td>4</td>
-      <td>POLYGON ((1603055.834 6464093.615, 1602963.025...</td>
+      <td>POLYGON ((1603055.834005827 6464093.614718676,...</td>
     </tr>
     <tr>
       <td>4</td>
       <td>5</td>
-      <td>POLYGON ((1603106.418 6464130.216, 1603112.191...</td>
+      <td>POLYGON ((1603106.417554705 6464130.215958447,...</td>
     </tr>
   </tbody>
 </table>
@@ -523,32 +442,7 @@ buildings = momepy.preprocess(gdf_projected, size=30,
 {:.output_stream}
 ```
 Loop 1 out of 2.
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Identifying changes: 100%|██████████| 2932/2932 [00:01<00:00, 2892.18it/s]
-Changing geometry: 100%|██████████| 31/31 [00:00<00:00, 72.23it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Loop 2 out of 2.
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Identifying changes: 100%|██████████| 2520/2520 [00:00<00:00, 3860.30it/s]
-Changing geometry: 100%|██████████| 2/2 [00:00<00:00, 64.89it/s]
 ```
 </div>
 </div>
@@ -597,95 +491,14 @@ tessellation_gdf = tessellation.tessellation
 ```
 Inward offset...
 Discretization...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-  1%|          | 25/2521 [00:00<00:10, 245.40it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Generating input point array...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 2521/2521 [00:04<00:00, 536.17it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Generating Voronoi diagram...
 Generating GeoDataFrame...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Vertices to Polygons: 100%|██████████| 267595/267595 [00:08<00:00, 31210.75it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Dissolving Voronoi polygons...
 Preparing limit for edge resolving...
 Building R-tree...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-  9%|▉         | 34/371 [00:00<00:01, 335.12it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Identifying edge cells...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 371/371 [00:01<00:00, 361.66it/s]
- 23%|██▎       | 55/238 [00:00<00:00, 548.68it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Cutting...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 238/238 [00:00<00:00, 538.93it/s]
 ```
 </div>
 </div>

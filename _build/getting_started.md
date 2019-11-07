@@ -2,7 +2,7 @@
 redirect_from:
   - "/getting-started"
 interact_link: content/getting_started.ipynb
-kernel_name: geo_dev
+kernel_name: mmp_guide
 has_widgets: false
 title: 'Getting started'
 prev_page:
@@ -39,9 +39,15 @@ Momepy can be easily installed using conda from `conda-forge`. For detailed inst
 
 
 
-```
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```python
 conda install momepy -c conda-forge
+
 ```
+</div>
+
+</div>
 
 
 
@@ -51,10 +57,16 @@ To run all examples in this notebook, you will need some optional dependencies. 
 
 
 
-```
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```python
 conda install matplotlib descartes osmnx -c conda-forge
 pip install mapclassify
+
 ```
+</div>
+
+</div>
 
 
 
@@ -209,33 +221,33 @@ blg_area.gdf.head()
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>1</td>
-      <td>POLYGON ((1603599.221 6464369.816, 1603602.984...</td>
+      <td>POLYGON ((1603599.221193187 6464369.815517657,...</td>
       <td>728.557495</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
       <td>2</td>
-      <td>POLYGON ((1603042.880 6464261.498, 1603038.961...</td>
+      <td>POLYGON ((1603042.87977405 6464261.497778866, ...</td>
       <td>11216.093578</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
       <td>3</td>
-      <td>POLYGON ((1603044.650 6464178.035, 1603049.192...</td>
+      <td>POLYGON ((1603044.649753952 6464178.034552199,...</td>
       <td>641.059515</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>3</td>
       <td>4</td>
-      <td>POLYGON ((1603036.557 6464141.467, 1603036.969...</td>
+      <td>POLYGON ((1603036.556826973 6464141.466502897,...</td>
       <td>903.746689</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
       <td>5</td>
-      <td>POLYGON ((1603082.387 6464142.022, 1603081.574...</td>
+      <td>POLYGON ((1603082.38706133 6464142.02187786, 1...</td>
       <td>641.629131</td>
     </tr>
   </tbody>
@@ -264,14 +276,6 @@ blg_ERI = momepy.EquivalentRectangularIndex(buildings)
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 144/144 [00:00<00:00, 1343.34it/s]
-```
-</div>
-</div>
 </div>
 
 
@@ -289,14 +293,6 @@ buildings['eri'] = blg_ERI.eri
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 144/144 [00:00<00:00, 1175.62it/s]
-```
-</div>
-</div>
 </div>
 
 
@@ -347,7 +343,7 @@ blg_ERI.areas.head()
 2      641.059515
 3      903.746689
 4      641.629131
-Name: area, dtype: float64
+Name: mm_a, dtype: float64
 ```
 
 
@@ -531,14 +527,6 @@ profile = momepy.StreetProfile(streets, buildings)
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 35/35 [00:04<00:00,  7.56it/s]
-```
-</div>
-</div>
 </div>
 
 
@@ -667,14 +655,6 @@ gdf_projected['eri'] = gdf_ERI.eri
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 2932/2932 [00:01<00:00, 1478.48it/s]
-```
-</div>
-</div>
 </div>
 
 

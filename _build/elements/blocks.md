@@ -101,32 +101,9 @@ blocks = momepy.Blocks(
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
- 33%|███▎      | 48/144 [00:00<00:00, 470.02it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Buffering streets...
 Generating spatial index...
 Difference...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 144/144 [00:00<00:00, 524.55it/s]
-100%|██████████| 254/254 [00:00<00:00, 12396.91it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Defining adjacency...
 Defining street-based blocks...
 Defining block ID...
@@ -135,30 +112,8 @@ Spatial join...
 Attribute join (tesselation)...
 Generating blocks...
 Multipart to singlepart...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 8/8 [00:00<00:00, 482.72it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Attribute join (buildings)...
 Attribute join (tesselation)...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-
 ```
 </div>
 </div>
@@ -272,32 +227,9 @@ blocks = momepy.Blocks(tessellation, streets, buildings,
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
- 37%|███▋      | 53/144 [00:00<00:00, 517.50it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Buffering streets...
 Generating spatial index...
 Difference...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 144/144 [00:00<00:00, 559.01it/s]
-100%|██████████| 252/252 [00:00<00:00, 7406.95it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Defining adjacency...
 Defining street-based blocks...
 Defining block ID...
@@ -305,31 +237,9 @@ Generating centroids...
 Spatial join...
 Attribute join (tesselation)...
 Generating blocks...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 6/6 [00:00<00:00, 315.91it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Multipart to singlepart...
 Attribute join (buildings)...
 Attribute join (tesselation)...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-
 ```
 </div>
 </div>
@@ -383,29 +293,7 @@ snapped = momepy.snap_street_network_edge(streets, buildings, tolerance_street=1
 Building R-tree for network...
 Building R-tree for buildings...
 Dissolving tesselation...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 35/35 [00:00<00:00, 199.12it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Snapping...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-
 ```
 </div>
 </div>
@@ -458,32 +346,9 @@ blocks = momepy.Blocks(
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
- 16%|█▌        | 23/144 [00:00<00:00, 224.59it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Buffering streets...
 Generating spatial index...
 Difference...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 144/144 [00:00<00:00, 457.10it/s]
-100%|██████████| 255/255 [00:00<00:00, 12821.08it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Defining adjacency...
 Defining street-based blocks...
 Defining block ID...
@@ -491,31 +356,9 @@ Generating centroids...
 Spatial join...
 Attribute join (tesselation)...
 Generating blocks...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 8/8 [00:00<00:00, 556.06it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Multipart to singlepart...
 Attribute join (buildings)...
 Attribute join (tesselation)...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-
 ```
 </div>
 </div>

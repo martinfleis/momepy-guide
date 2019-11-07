@@ -62,124 +62,16 @@ tessellation = tess.tessellation
 {:.output_stream}
 ```
 Loop 1 out of 2.
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Identifying changes: 100%|██████████| 3201/3201 [00:00<00:00, 3801.91it/s]
-Changing geometry: 100%|██████████| 20/20 [00:00<00:00, 75.21it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Loop 2 out of 2.
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Identifying changes: 100%|██████████| 3168/3168 [00:00<00:00, 4573.38it/s]
-Changing geometry: 100%|██████████| 2/2 [00:00<00:00, 70.89it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Inward offset...
 Discretization...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-  2%|▏         | 74/3166 [00:00<00:08, 375.91it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Generating input point array...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 3166/3166 [00:06<00:00, 491.92it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Generating Voronoi diagram...
 Generating GeoDataFrame...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Vertices to Polygons: 100%|██████████| 497117/497117 [00:14<00:00, 34743.85it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Dissolving Voronoi polygons...
 Preparing limit for edge resolving...
 Building R-tree...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
- 18%|█▊        | 30/163 [00:00<00:00, 299.21it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Identifying edge cells...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 163/163 [00:00<00:00, 344.63it/s]
-100%|██████████| 95/95 [00:00<00:00, 567.18it/s]
-/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/momepy/elements.py:429: UserWarning: Tessellation contains MultiPolygon elements. Initial objects should be edited. unique_id of affected elements: [833, 1979, 2870, 2875, 3132]
-  "unique_id of affected elements: {}".format(list(uids))
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Cutting...
 ```
 </div>

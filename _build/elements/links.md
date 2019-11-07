@@ -93,23 +93,8 @@ buildings['nID'] = momepy.get_network_id(buildings, streets,
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-Snapping: 100%|██████████| 144/144 [00:00<00:00, 2232.66it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Generating centroids...
 Generating rtree...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-
 ```
 </div>
 </div>
@@ -252,27 +237,27 @@ nodes.head()
     <tr>
       <td>0</td>
       <td>1</td>
-      <td>POINT (1603585.640 6464428.774)</td>
+      <td>POINT (1603585.64021531 6464428.773867372)</td>
     </tr>
     <tr>
       <td>1</td>
       <td>2</td>
-      <td>POINT (1603413.206 6464228.730)</td>
+      <td>POINT (1603413.20632407 6464228.730248732)</td>
     </tr>
     <tr>
       <td>2</td>
       <td>3</td>
-      <td>POINT (1603268.502 6464060.781)</td>
+      <td>POINT (1603268.502117987 6464060.781328565)</td>
     </tr>
     <tr>
       <td>3</td>
       <td>4</td>
-      <td>POINT (1603363.558 6464031.885)</td>
+      <td>POINT (1603363.557831175 6464031.88480676)</td>
     </tr>
     <tr>
       <td>4</td>
       <td>5</td>
-      <td>POINT (1603607.303 6464181.853)</td>
+      <td>POINT (1603607.302988218 6464181.852772597)</td>
     </tr>
   </tbody>
 </table>
@@ -332,7 +317,7 @@ edges.head()
   <tbody>
     <tr>
       <td>0</td>
-      <td>LINESTRING (1603585.640 6464428.774, 1603413.2...</td>
+      <td>LINESTRING (1603585.64021531 6464428.773867372...</td>
       <td>0</td>
       <td>264.103950</td>
       <td>1</td>
@@ -340,7 +325,7 @@ edges.head()
     </tr>
     <tr>
       <td>1</td>
-      <td>LINESTRING (1603561.740 6464494.467, 1603564.6...</td>
+      <td>LINESTRING (1603561.739920635 6464494.46683961...</td>
       <td>14</td>
       <td>70.020202</td>
       <td>1</td>
@@ -348,7 +333,7 @@ edges.head()
     </tr>
     <tr>
       <td>2</td>
-      <td>LINESTRING (1603585.640 6464428.774, 1603603.0...</td>
+      <td>LINESTRING (1603585.64021531 6464428.773867372...</td>
       <td>15</td>
       <td>88.924305</td>
       <td>1</td>
@@ -356,7 +341,7 @@ edges.head()
     </tr>
     <tr>
       <td>3</td>
-      <td>LINESTRING (1603607.303 6464181.853, 1603592.8...</td>
+      <td>LINESTRING (1603607.302988218 6464181.85277259...</td>
       <td>2</td>
       <td>199.746503</td>
       <td>2</td>
@@ -364,7 +349,7 @@ edges.head()
     </tr>
     <tr>
       <td>4</td>
-      <td>LINESTRING (1603363.558 6464031.885, 1603376.5...</td>
+      <td>LINESTRING (1603363.557831175 6464031.88480676...</td>
       <td>5</td>
       <td>203.014090</td>
       <td>2</td>
@@ -391,14 +376,6 @@ buildings['nodeID'] = momepy.get_node_id(buildings, nodes, edges,
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 144/144 [00:00<00:00, 254.66it/s]
-```
-</div>
-</div>
 </div>
 
 
@@ -502,35 +479,35 @@ tessellation.head()
     <tr>
       <td>0</td>
       <td>1.0</td>
-      <td>POLYGON ((1603578.489 6464344.527, 1603577.040...</td>
+      <td>POLYGON ((1603578.489402621 6464344.527356279,...</td>
       <td>0</td>
       <td>1</td>
     </tr>
     <tr>
       <td>1</td>
       <td>2.0</td>
-      <td>POLYGON ((1603067.112 6464177.926, 1603054.848...</td>
+      <td>POLYGON ((1603067.112376137 6464177.925999344,...</td>
       <td>33</td>
       <td>10</td>
     </tr>
     <tr>
       <td>2</td>
       <td>3.0</td>
-      <td>POLYGON ((1602978.618 6464156.859, 1603006.384...</td>
+      <td>POLYGON ((1602978.618427251 6464156.858671652,...</td>
       <td>10</td>
       <td>12</td>
     </tr>
     <tr>
       <td>3</td>
       <td>4.0</td>
-      <td>POLYGON ((1603056.595 6464093.903, 1603011.539...</td>
+      <td>POLYGON ((1603056.595487018 6464093.903488506,...</td>
       <td>10</td>
       <td>12</td>
     </tr>
     <tr>
       <td>4</td>
       <td>5.0</td>
-      <td>POLYGON ((1603110.459 6464114.367, 1603109.099...</td>
+      <td>POLYGON ((1603110.458928567 6464114.366504128,...</td>
       <td>8</td>
       <td>12</td>
     </tr>

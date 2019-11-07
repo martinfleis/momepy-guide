@@ -61,130 +61,17 @@ tessellation = tess.tessellation
 {:.output_stream}
 ```
 Loop 1 out of 2.
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Identifying changes: 100%|██████████| 2932/2932 [00:00<00:00, 4760.83it/s]
-Changing geometry: 100%|██████████| 31/31 [00:00<00:00, 91.46it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Loop 2 out of 2.
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Identifying changes: 100%|██████████| 2520/2520 [00:00<00:00, 4301.23it/s]
-Changing geometry: 100%|██████████| 2/2 [00:00<00:00, 71.40it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Inward offset...
 Discretization...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-  1%|          | 30/2521 [00:00<00:08, 296.64it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Generating input point array...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 2521/2521 [00:03<00:00, 713.69it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Generating Voronoi diagram...
 Generating GeoDataFrame...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Vertices to Polygons: 100%|██████████| 267595/267595 [00:07<00:00, 35327.28it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Dissolving Voronoi polygons...
 Preparing limit for edge resolving...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-  0%|          | 0/371 [00:00<?, ?it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Building R-tree...
 Identifying edge cells...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 371/371 [00:01<00:00, 360.91it/s]
- 24%|██▍       | 57/238 [00:00<00:00, 565.89it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Cutting...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 238/238 [00:00<00:00, 516.99it/s]
 ```
 </div>
 </div>
@@ -273,14 +160,6 @@ buildings['elongation'] = blg_elongation.e
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 2518/2518 [00:02<00:00, 1246.15it/s]
-```
-</div>
-</div>
 </div>
 
 
@@ -322,14 +201,6 @@ buildings['squareness'] = blg_squareness.s
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 2518/2518 [00:01<00:00, 2014.20it/s]
-```
-</div>
-</div>
 </div>
 
 
@@ -516,14 +387,6 @@ edges['linearity'] = edg_lin.linearity
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 410/410 [00:00<00:00, 4371.67it/s]
-```
-</div>
-</div>
 </div>
 
 
@@ -543,20 +406,9 @@ plt.show()
 
 <div class="output_wrapper" markdown="1">
 <div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:138: UserWarning: Warning: Not enough unique values in array to form k classes
-  "Warning: Not enough unique values in array to form k classes", UserWarning
-/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:140: UserWarning: Warning: setting k to 4
-  Warn("Warning: setting k to %d" % k_q, UserWarning)
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](../images/simple/shape_27_1.png)
+![png](../images/simple/shape_27_0.png)
 
 </div>
 </div>

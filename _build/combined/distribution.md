@@ -55,130 +55,17 @@ tessellation = momepy.Tessellation(buildings, unique_id='uID', limit=limit).tess
 {:.output_stream}
 ```
 Loop 1 out of 2.
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Identifying changes: 100%|██████████| 2932/2932 [00:00<00:00, 4075.01it/s]
-Changing geometry: 100%|██████████| 31/31 [00:00<00:00, 88.16it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Loop 2 out of 2.
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Identifying changes: 100%|██████████| 2520/2520 [00:00<00:00, 4019.74it/s]
-Changing geometry: 100%|██████████| 2/2 [00:00<00:00, 67.23it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Inward offset...
 Discretization...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-  1%|          | 22/2521 [00:00<00:11, 212.99it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Generating input point array...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 2521/2521 [00:03<00:00, 686.94it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Generating Voronoi diagram...
 Generating GeoDataFrame...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Vertices to Polygons: 100%|██████████| 267595/267595 [00:09<00:00, 27854.09it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Dissolving Voronoi polygons...
 Preparing limit for edge resolving...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-  0%|          | 0/371 [00:00<?, ?it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Building R-tree...
 Identifying edge cells...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 371/371 [00:01<00:00, 294.82it/s]
- 24%|██▎       | 56/238 [00:00<00:00, 554.41it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Cutting...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 238/238 [00:00<00:00, 401.23it/s]
 ```
 </div>
 </div>
@@ -220,15 +107,6 @@ tessellation['orientation'] = momepy.Orientation(tessellation).o
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 2518/2518 [00:01<00:00, 1325.90it/s]
-100%|██████████| 2518/2518 [00:12<00:00, 196.98it/s]
-```
-</div>
-</div>
 </div>
 
 
@@ -272,14 +150,6 @@ buildings['cell_align'] = blg_cell_align.ca
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 2518/2518 [00:03<00:00, 755.02it/s]
-```
-</div>
-</div>
 </div>
 
 
@@ -330,25 +200,8 @@ buildings['networkID'] = momepy.get_network_id(buildings, edges,
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-Snapping:   5%|▌         | 129/2518 [00:00<00:01, 1288.38it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Generating centroids...
 Generating rtree...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Snapping: 100%|██████████| 2518/2518 [00:01<00:00, 1432.19it/s]
-/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/momepy/elements.py:714: UserWarning: Some objects were not attached to the network. Set larger min_size. 240 affected elements
-  "Set larger min_size. {} affected elements".format(sum(series.isnull()))
 ```
 </div>
 </div>
@@ -411,20 +264,6 @@ buildings_net['str_align'] = str_align.sa
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 2276/2276 [00:04<00:00, 545.67it/s]
-/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/ipykernel_launcher.py:4: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  after removing the cwd from sys.path.
-```
-</div>
-</div>
 </div>
 
 
@@ -526,14 +365,6 @@ profile = momepy.StreetProfile(edges, buildings, heights='height')
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 431/431 [00:35<00:00, 12.06it/s]
-```
-</div>
-</div>
 </div>
 
 

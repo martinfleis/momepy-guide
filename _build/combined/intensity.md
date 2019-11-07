@@ -61,124 +61,16 @@ tessellation = momepy.Tessellation(buildings, unique_id='uID', limit=limit).tess
 {:.output_stream}
 ```
 Loop 1 out of 2.
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Identifying changes: 100%|██████████| 3201/3201 [00:00<00:00, 3539.84it/s]
-Changing geometry: 100%|██████████| 20/20 [00:00<00:00, 90.30it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Loop 2 out of 2.
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Identifying changes: 100%|██████████| 3168/3168 [00:00<00:00, 5172.09it/s]
-Changing geometry: 100%|██████████| 2/2 [00:00<00:00, 79.76it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Inward offset...
 Discretization...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-  1%|▏         | 41/3166 [00:00<00:07, 407.62it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Generating input point array...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 3166/3166 [00:05<00:00, 533.21it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Generating Voronoi diagram...
 Generating GeoDataFrame...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Vertices to Polygons: 100%|██████████| 497117/497117 [00:15<00:00, 32779.93it/s]
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Dissolving Voronoi polygons...
 Preparing limit for edge resolving...
 Building R-tree...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
- 43%|████▎     | 70/163 [00:00<00:00, 358.34it/s]```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Identifying edge cells...
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-100%|██████████| 163/163 [00:00<00:00, 337.46it/s]
-100%|██████████| 95/95 [00:00<00:00, 658.15it/s]
-/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/momepy/elements.py:429: UserWarning: Tessellation contains MultiPolygon elements. Initial objects should be edited. unique_id of affected elements: [833, 1979, 2870, 2875, 3132]
-  "unique_id of affected elements: {}".format(list(uids))
-```
-</div>
-</div>
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
 Cutting...
 ```
 </div>
@@ -231,18 +123,6 @@ tessellation['CAR'] = tess_car.ar
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/pandas/core/frame.py:4223: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  return super().rename(**kwargs)
-```
-</div>
-</div>
 </div>
 
 
@@ -324,18 +204,6 @@ tessellation['FAR'] = momepy.AreaRatio(tessellation, buildings,
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/pandas/core/frame.py:4223: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  return super().rename(**kwargs)
-```
-</div>
-</div>
 </div>
 
 
