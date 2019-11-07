@@ -24,4 +24,5 @@ script:
   - jupyter-book run content/simple
   - jupyter-book run content/combined
   - jupyter-book run content/weights
-  - jupyter-book run content/graph
+  - jupyter-book run content/graph/convert.ipynb
+  - jupyter-book run content/graph/network.ipynb
