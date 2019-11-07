@@ -23,7 +23,7 @@ description: >-
   This is an user guide for Urban Morphology Measuring Toolkit called momepy.
 
 baseurl: /  # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
-url: http://guide.momepy.org   # the base hostname & protocol for your site, e.g. http://example.com
+url: https://martinfleis.github.io/momepy-guide/   # the base hostname & protocol for your site, e.g. http://example.com
 
 
 #######################################################################################
