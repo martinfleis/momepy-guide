@@ -291,7 +291,7 @@ Building R-tree...
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Area</span><span class="p">(</span><span class="n">tessellation</span><span class="p">)</span><span class="o">.</span><span class="n">area</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Area</span><span class="p">(</span><span class="n">tessellation</span><span class="p">)</span><span class="o">.</span><span class="n">series</span>
 </pre></div>
 
     </div>
@@ -321,7 +321,7 @@ Building R-tree...
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">area_rng</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Range</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span>
                                         <span class="n">spatial_weights</span><span class="o">=</span><span class="n">sw3</span><span class="p">,</span> <span class="n">unique_id</span><span class="o">=</span><span class="s1">&#39;uID&#39;</span><span class="p">)</span>
-<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area_rng&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">area_rng</span><span class="o">.</span><span class="n">r</span>
+<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area_rng&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">area_rng</span><span class="o">.</span><span class="n">series</span>
 </pre></div>
 
     </div>
@@ -357,7 +357,6 @@ Building R-tree...
 <span class="n">tessellation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;area_rng&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Spectral_r&#39;</span><span class="p">)</span>
 <span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -407,7 +406,7 @@ Building R-tree...
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">area_iqr</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Range</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span>
                         <span class="n">spatial_weights</span><span class="o">=</span><span class="n">sw3</span><span class="p">,</span> <span class="n">unique_id</span><span class="o">=</span><span class="s1">&#39;uID&#39;</span><span class="p">,</span>
                         <span class="n">rng</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">75</span><span class="p">))</span>
-<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area_IQR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">area_iqr</span><span class="o">.</span><span class="n">r</span>
+<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area_IQR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">area_iqr</span><span class="o">.</span><span class="n">series</span>
 </pre></div>
 
     </div>
@@ -443,7 +442,6 @@ Building R-tree...
 <span class="n">tessellation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;area_IQR&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Spectral_r&#39;</span><span class="p">)</span>
 <span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -494,7 +492,7 @@ Building R-tree...
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">area_theil</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Theil</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span>
                           <span class="n">spatial_weights</span><span class="o">=</span><span class="n">sw3</span><span class="p">,</span>
                           <span class="n">unique_id</span><span class="o">=</span><span class="s1">&#39;uID&#39;</span><span class="p">)</span>
-<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area_Theil&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">area_theil</span><span class="o">.</span><span class="n">t</span>
+<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area_Theil&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">area_theil</span><span class="o">.</span><span class="n">series</span>
 </pre></div>
 
     </div>
@@ -530,7 +528,6 @@ Building R-tree...
 <span class="n">tessellation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;area_Theil&#39;</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;fisherjenkssampled&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">)</span>
 <span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -591,7 +588,7 @@ Building R-tree...
                              <span class="n">spatial_weights</span><span class="o">=</span><span class="n">sw3</span><span class="p">,</span>
                              <span class="n">unique_id</span><span class="o">=</span><span class="s1">&#39;uID&#39;</span><span class="p">,</span>
                              <span class="n">rng</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">90</span><span class="p">))</span>
-<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area_Theil_ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">area_id_theil</span><span class="o">.</span><span class="n">t</span>
+<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area_Theil_ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">area_id_theil</span><span class="o">.</span><span class="n">series</span>
 </pre></div>
 
     </div>
@@ -627,7 +624,6 @@ Building R-tree...
 <span class="n">tessellation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;area_Theil_ID&#39;</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;fisherjenkssampled&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">)</span>
 <span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -677,7 +673,7 @@ Building R-tree...
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">area_simpson</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Simpson</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span>
                               <span class="n">spatial_weights</span><span class="o">=</span><span class="n">sw3</span><span class="p">,</span>
                               <span class="n">unique_id</span><span class="o">=</span><span class="s1">&#39;uID&#39;</span><span class="p">)</span>
-<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area_simpson&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">area_simpson</span><span class="o">.</span><span class="n">s</span>
+<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area_simpson&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">area_simpson</span><span class="o">.</span><span class="n">series</span>
 </pre></div>
 
     </div>
@@ -729,7 +725,6 @@ Building R-tree...
 <span class="n">tessellation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;area_simpson&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
 <span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -779,7 +774,7 @@ Building R-tree...
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;area_simpson_q7&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Simpson</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span>
                                                  <span class="n">spatial_weights</span><span class="o">=</span><span class="n">sw3</span><span class="p">,</span>
                                                  <span class="n">unique_id</span><span class="o">=</span><span class="s1">&#39;uID&#39;</span><span class="p">,</span>
-                                                 <span class="n">binning</span><span class="o">=</span><span class="s1">&#39;quantiles&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">s</span>
+                                                 <span class="n">binning</span><span class="o">=</span><span class="s1">&#39;quantiles&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">series</span>
 </pre></div>
 
     </div>
@@ -815,7 +810,6 @@ Building R-tree...
 <span class="n">tessellation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;area_simpson_q7&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
 <span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 

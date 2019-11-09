@@ -287,7 +287,7 @@ Building R-tree...
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;neighbours&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Neighbors</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">sw3</span><span class="p">,</span><span class="s1">&#39;uID&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">n</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;neighbours&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Neighbors</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">sw3</span><span class="p">,</span><span class="s1">&#39;uID&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">series</span>
 </pre></div>
 
     </div>
@@ -323,7 +323,6 @@ Building R-tree...
 <span class="n">tessellation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;neighbours&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Spectral_r&#39;</span><span class="p">)</span>
 <span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -419,7 +418,7 @@ Building R-tree...
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;neighbours400&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Neighbors</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">dist400</span><span class="p">,</span> <span class="s1">&#39;uID&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">n</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;neighbours400&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Neighbors</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">dist400</span><span class="p">,</span> <span class="s1">&#39;uID&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">series</span>
 </pre></div>
 
     </div>
@@ -455,7 +454,6 @@ Building R-tree...
 <span class="n">tessellation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;neighbours400&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Spectral_r&#39;</span><span class="p">)</span>
 <span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -519,7 +517,7 @@ Building R-tree...
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;neighboursKNN&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Neighbors</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">knn</span><span class="p">,</span><span class="s1">&#39;uID&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">n</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;neighboursKNN&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Neighbors</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">knn</span><span class="p">,</span><span class="s1">&#39;uID&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">series</span>
 </pre></div>
 
     </div>
@@ -555,7 +553,6 @@ Building R-tree...
 <span class="n">tessellation</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;neighboursKNN&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Spectral_r&#39;</span><span class="p">)</span>
 <span class="n">buildings</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 

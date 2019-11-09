@@ -218,13 +218,24 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">blg_area</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Area</span><span class="p">(</span><span class="n">buildings</span><span class="p">)</span>
-<span class="n">buildings</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">blg_area</span><span class="o">.</span><span class="n">area</span>
+<span class="n">buildings</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">blg_area</span><span class="o">.</span><span class="n">series</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Tip: <code>.series</code> will give you resulting Pandas Series in most of the cases (unless there are more resulting Series).</p>
+
+</div>
+</div>
 </div>
 </div>
 
@@ -254,7 +265,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 
 <div class="output_png output_subarea ">
-<img src="images/getting_started_12_0.png"
+<img src="images/getting_started_13_0.png"
 >
 </div>
 
@@ -428,7 +439,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">blg_ERI</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">EquivalentRectangularIndex</span><span class="p">(</span><span class="n">buildings</span><span class="p">,</span> <span class="n">areas</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">)</span>
-<span class="n">buildings</span><span class="p">[</span><span class="s1">&#39;eri&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">blg_ERI</span><span class="o">.</span><span class="n">eri</span>
+<span class="n">buildings</span><span class="p">[</span><span class="s1">&#39;eri&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">blg_ERI</span><span class="o">.</span><span class="n">series</span>
 </pre></div>
 
     </div>
@@ -464,7 +475,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 
 <div class="output_png output_subarea ">
-<img src="images/getting_started_19_0.png"
+<img src="images/getting_started_20_0.png"
 >
 </div>
 
@@ -621,7 +632,7 @@ Name: mm_p, dtype: float64</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="images/getting_started_25_0.png"
+<img src="images/getting_started_26_0.png"
 >
 </div>
 
@@ -653,7 +664,7 @@ Name: mm_p, dtype: float64</pre>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">coverage</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">AreaRatio</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">buildings</span><span class="p">,</span> <span class="n">left_areas</span><span class="o">=</span><span class="n">tessellation</span><span class="o">.</span><span class="n">area</span><span class="p">,</span>
                             <span class="n">right_areas</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="n">unique_id</span><span class="o">=</span><span class="s1">&#39;uID&#39;</span><span class="p">)</span>
-<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;CAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coverage</span><span class="o">.</span><span class="n">ar</span>
+<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;CAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coverage</span><span class="o">.</span><span class="n">series</span>
 </pre></div>
 
     </div>
@@ -690,7 +701,7 @@ Name: mm_p, dtype: float64</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="images/getting_started_28_0.png"
+<img src="images/getting_started_29_0.png"
 >
 </div>
 
@@ -759,7 +770,7 @@ Name: mm_p, dtype: float64</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="images/getting_started_31_0.png"
+<img src="images/getting_started_32_0.png"
 >
 </div>
 
@@ -843,6 +854,17 @@ Name: mm_p, dtype: float64</pre>
 </div>
 </div>
 
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>StreetProfile</code> measures several characters at the same time. Each of them is saved in its own Series, so <code>.series</code> would not work here.</p>
+
+</div>
+</div>
+</div>
+</div>
+
 <div class="jb_cell tag_hide_input">
 
 <div class="cell border-box-sizing code_cell rendered tag_hide_input">
@@ -871,7 +893,7 @@ Name: mm_p, dtype: float64</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="images/getting_started_36_0.png"
+<img src="images/getting_started_38_0.png"
 >
 </div>
 
@@ -911,7 +933,7 @@ Name: mm_p, dtype: float64</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="images/getting_started_37_0.png"
+<img src="images/getting_started_39_0.png"
 >
 </div>
 
@@ -980,7 +1002,7 @@ Name: mm_p, dtype: float64</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="images/getting_started_40_0.png"
+<img src="images/getting_started_42_0.png"
 >
 </div>
 
@@ -1011,7 +1033,7 @@ Name: mm_p, dtype: float64</pre>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">gdf_ERI</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">EquivalentRectangularIndex</span><span class="p">(</span><span class="n">gdf_projected</span><span class="p">)</span>
-<span class="n">gdf_projected</span><span class="p">[</span><span class="s1">&#39;eri&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf_ERI</span><span class="o">.</span><span class="n">eri</span>
+<span class="n">gdf_projected</span><span class="p">[</span><span class="s1">&#39;eri&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf_ERI</span><span class="o">.</span><span class="n">series</span>
 </pre></div>
 
     </div>
@@ -1062,7 +1084,7 @@ Name: mm_p, dtype: float64</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="images/getting_started_43_0.png"
+<img src="images/getting_started_45_0.png"
 >
 </div>
 
