@@ -60,9 +60,9 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </div>
 </div>
 
-<div class="jb_cell">
+<div class="jb_cell tag_remove_output">
 
-<div class="cell border-box-sizing code_cell rendered">
+<div class="cell border-box-sizing code_cell rendered tag_remove_output">
 <div class="input">
 
 <div class="inner_cell">
@@ -81,160 +81,6 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Loop 1 out of 2.
-</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Identifying changes: 100%|██████████| 2917/2917 [00:00&lt;00:00, 3453.46it/s]
-Changing geometry: 100%|██████████| 31/31 [00:00&lt;00:00, 63.49it/s]
-</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Loop 2 out of 2.
-</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Identifying changes: 100%|██████████| 2505/2505 [00:00&lt;00:00, 4900.93it/s]
-Changing geometry: 100%|██████████| 2/2 [00:00&lt;00:00, 117.72it/s]
-</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Inward offset...
-Discretization...
-</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>  1%|          | 28/2506 [00:00&lt;00:08, 278.22it/s]</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Generating input point array...
-</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>100%|██████████| 2506/2506 [00:05&lt;00:00, 480.34it/s]
-</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Generating Voronoi diagram...
-Generating GeoDataFrame...
-</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Vertices to Polygons: 100%|██████████| 263754/263754 [00:06&lt;00:00, 38829.25it/s]
-</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Dissolving Voronoi polygons...
-Preparing limit for edge resolving...
-</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>  0%|          | 0/373 [00:00&lt;?, ?it/s]</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Building R-tree...
-Identifying edge cells...
-</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>100%|██████████| 373/373 [00:00&lt;00:00, 426.44it/s]
- 17%|█▋        | 40/238 [00:00&lt;00:00, 396.22it/s]</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Cutting...
-</pre>
-</div>
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>100%|██████████| 238/238 [00:00&lt;00:00, 376.59it/s]
-</pre>
-</div>
-</div>
-</div>
 </div>
 </div>
 
@@ -515,7 +361,18 @@ Identifying edge cells...
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>For the form factor, we need to know the volume of each building. While we do not have building height data for Kahla, we will generate them randomly and pass a <code>Series</code> containing volume values to <code>FormFactor</code>. (Note that for the majority of attributes you can always pass values as the name of the column, <code>np.array</code>, or <code>pd.Series</code>.)</p>
+<p>For the form factor, we need to know the volume of each building. While we do not have building height data for Kahla, we will generate them randomly and pass a <code>Series</code> containing volume values to <code>FormFactor</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_popout">
+
+<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note that for the majority of parameters you can always pass values as the name of the column, <code>np.array</code>, <code>pd.Series</code> or other list-like object.</p>
 
 </div>
 </div>
@@ -566,7 +423,7 @@ Identifying edge cells...
 
 
 <div class="output_png output_subarea ">
-<img src="../images/simple/shape_16_0.png"
+<img src="../images/simple/shape_17_0.png"
 >
 </div>
 
@@ -633,7 +490,7 @@ Identifying edge cells...
 
 
 <div class="output_png output_subarea ">
-<img src="../images/simple/shape_19_0.png"
+<img src="../images/simple/shape_20_0.png"
 >
 </div>
 
@@ -678,7 +535,18 @@ Identifying edge cells...
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>osmnx</code> returns networkx Graph. While momepy works with graph in some cases, for this one we need <code>GeoDataFrame</code>. To get it, we can use <code>ox.save_load.graph_to_gdfs</code>. (<code>momepy.nx_to_gdf</code> might work as well, but OSM network needs to be complete in that case. <code>osmnx</code> takes care of it.)</p>
+<p><code>osmnx</code> returns networkx Graph. While momepy works with graph in some cases, for this one we need <code>GeoDataFrame</code>. To get it, we can use <code>ox.save_load.graph_to_gdfs</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_popout">
+
+<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>momepy.nx_to_gdf</code> might work as well, but OSM network needs to be complete in that case. <code>osmnx</code> takes care of it.</p>
 
 </div>
 </div>
@@ -730,7 +598,7 @@ Identifying edge cells...
 
 
 <div class="output_png output_subarea ">
-<img src="../images/simple/shape_24_0.png"
+<img src="../images/simple/shape_26_0.png"
 >
 </div>
 
@@ -813,7 +681,7 @@ Identifying edge cells...
 
 
 <div class="output_png output_subarea ">
-<img src="../images/simple/shape_27_0.png"
+<img src="../images/simple/shape_29_0.png"
 >
 </div>
 

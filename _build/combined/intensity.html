@@ -138,9 +138,9 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </div>
 </div>
 
-<div class="jb_cell">
+<div class="jb_cell tag_remove_output">
 
-<div class="cell border-box-sizing code_cell rendered">
+<div class="cell border-box-sizing code_cell rendered tag_remove_output">
 <div class="input">
 
 <div class="inner_cell">
@@ -155,25 +155,6 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/Users/martin/anaconda3/envs/mmp_guide/lib/python3.7/site-packages/pandas/core/frame.py:4223: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  return super().rename(**kwargs)
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -181,7 +162,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Or we can pass <code>momepy.Area().area</code> directly:</p>
+<p>Or we can pass <code>momepy.Area().series</code> directly:</p>
 
 </div>
 </div>
@@ -198,7 +179,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tess_car</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">AreaRatio</span><span class="p">(</span><span class="n">tessellation</span><span class="p">,</span> <span class="n">buildings</span><span class="p">,</span>
                             <span class="n">momepy</span><span class="o">.</span><span class="n">Area</span><span class="p">(</span><span class="n">tessellation</span><span class="p">)</span><span class="o">.</span><span class="n">series</span><span class="p">,</span>
                             <span class="n">momepy</span><span class="o">.</span><span class="n">Area</span><span class="p">(</span><span class="n">buildings</span><span class="p">)</span><span class="o">.</span><span class="n">series</span><span class="p">,</span> <span class="s1">&#39;uID&#39;</span><span class="p">)</span>
-<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;CAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tess_car</span><span class="o">.</span><span class="n">ar</span>
+<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;CAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tess_car</span><span class="o">.</span><span class="n">series</span>
 </pre></div>
 
     </div>
