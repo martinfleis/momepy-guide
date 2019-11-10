@@ -1,6 +1,4 @@
 # momepy User Guide
-[![Build Status](https://travis-ci.org/martinfleis/momepy-guide.svg?branch=master)](https://travis-ci.org/martinfleis/momepy-guide)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/martinfleis/momepy-guide/master?filepath=content)
 
 Momepy is a project allowing advanced quantitative analysis of urban form - urban morphometrics.
 This toolkit aims to provide tools for the development of complex frameworks for a description of urban structures.
@@ -26,3 +24,6 @@ The API reference for all functions included in momepy is available at [docs.mom
 
 ## Contributing
 The contributing guidelines are available in the [documentation](https://docs.momepy.org/en/latest/contributing.html).
+
+[![Build Status](https://travis-ci.org/martinfleis/momepy-guide.svg?branch=master)](https://travis-ci.org/martinfleis/momepy-guide)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/martinfleis/momepy-guide/master?filepath=content)
