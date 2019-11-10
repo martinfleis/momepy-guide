@@ -20,11 +20,11 @@ install:
 
 script:
   - mkdir content/output
-  - jupyter nbconvert --to notebook --execute content/getting_started.ipynb --output-dir content/output
-  - jupyter nbconvert --to notebook --execute content/elements/*.ipynb --output-dir content/output
-  - jupyter nbconvert --to notebook --execute content/simple/*.ipynb --output-dir content/output
-  - jupyter nbconvert --to notebook --execute content/combined/*.ipynb --output-dir content/output
-  - jupyter nbconvert --to notebook --execute content/weights/*.ipynb --output-dir content/output
-  - jupyter nbconvert --to notebook --execute content/graph/convert.ipynb --output-dir content/output
-  - jupyter nbconvert --to notebook --execute content/graph/network.ipynb --output-dir content/output
+  - jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=1000 content/getting_started.ipynb --output-dir content/output
+  - jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=1000 content/elements/*.ipynb --output-dir content/output
+  - jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=1000 content/simple/*.ipynb --output-dir content/output
+  - jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=1000 content/combined/*.ipynb --output-dir content/output
+  - jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=1000 content/weights/*.ipynb --output-dir content/output
+  - jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=1000 content/graph/convert.ipynb --output-dir content/output
+  - jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=1000 content/graph/network.ipynb --output-dir content/output
   - rm -rf content/output
