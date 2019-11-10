@@ -19,10 +19,12 @@ install:
   - python -m ipykernel install --user --name mmp_guide --display-name "Python (momepy_guide)"
 
 script:
-  - jupyter-book run content/getting_started.ipynb
-  - jupyter-book run content/elements
-  - jupyter-book run content/simple
-  - jupyter-book run content/combined
-  - jupyter-book run content/weights
-  - jupyter-book run content/graph/convert.ipynb
-  - jupyter-book run content/graph/network.ipynb
+  - mkdir content/output
+  - jupyter nbconvert --to notebook --execute content/getting_started.ipynb --output-dir content/output
+  - jupyter nbconvert --to notebook --execute content/elements/*.ipynb --output-dir content/output
+  - jupyter nbconvert --to notebook --execute content/simple/*.ipynb --output-dir content/output
+  - jupyter nbconvert --to notebook --execute content/combined/*.ipynb --output-dir content/output
+  - jupyter nbconvert --to notebook --execute content/weights/*.ipynb --output-dir content/output
+  - jupyter nbconvert --to notebook --execute content/graph/convert.ipynb --output-dir content/output
+  - jupyter nbconvert --to notebook --execute content/graph/network.ipynb --output-dir content/output
+  - rm -rf content/output
