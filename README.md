@@ -14,7 +14,7 @@ Comments, suggestions, feedback, and contributions, as well as bug reports, are 
 This user guide is available at [guide.momepy.org](https://guide.momepy.org/).
 
 ## momepy repository
-Repository of the momepy package itself is at [github.org/martinfleis/momepy](https://github.org/martinfleis/momepy).
+Repository of the momepy package itself is at [github.com/martinfleis/momepy](https://github.com/martinfleis/momepy).
 
 ---
 Copyright (c) 2018-2019 Martin Fleischmann, University of Strathclyde, Urban Design Studies Unit
