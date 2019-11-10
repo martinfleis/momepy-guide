@@ -20,7 +20,7 @@ install:
 
 script:
   - mkdir content/output
-  - jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=1000 content/graph/centrality.ipynb --output-dir content/output
+  - jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=2000 content/graph/centrality.ipynb --output-dir content/output
   - jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=1000 content/getting_started.ipynb --output-dir content/output
   - jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=1000 content/elements/*.ipynb --output-dir content/output
   - jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=1000 content/simple/*.ipynb --output-dir content/output
