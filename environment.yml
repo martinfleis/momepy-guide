@@ -16,4 +16,4 @@ dependencies:
   - pip:
     - inequality
     - jupyter-book
-    - git+https://github.com/martinfleis/momepy.git@accessor
+    - git+https://github.com/martinfleis/momepy.git
