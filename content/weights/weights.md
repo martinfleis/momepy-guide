@@ -5,7 +5,3 @@ This section covers:
 * [Examples of usage](examples)
 * [Measuring diversity](diversity)
 * [Using two spatial weights matrices](two)
-
-```python
-
-```
