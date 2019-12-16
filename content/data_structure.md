@@ -1,5 +1,3 @@
-# Data Structure
-
 Momepy is built on top of [geopandas](http://geopandas.org) `GeoDataFrame` objects and, for network analysis, on [networkx](https://networkx.github.io) `Graph`.
 
 For any kind of morphometric analysis, data needs to be provided as `GeoDataFrames`. Results of morphometric analysis from `momepy` can be generally returned as pandas `Series` to be added as
