@@ -1,23 +1,24 @@
 ---
 interact_link: content/elements/tessellation.ipynb
 kernel_name: mmp_guide
+kernel_path: content/elements
 has_widgets: false
 title: |-
   Morphological tessellation
+pagenum: 4
 prev_page:
   url: /elements/elements.html
-  title: |-
-    Generating morphological elements
 next_page:
   url: /elements/blocks.html
-  title: |-
-    Tessellation-based blocks
 suffix: .ipynb
+search: tessellation data buildings generate using momepy generated building not uniqueid limit distance shrink should morphological mt voronoi segment between points real id multipolygon values quality while often possible errors might warnings generating polygons its geodataframe such column case maximal attributes both result defines adjacent larger accessed input geometry common geodataframes based life small issues preprocess done manually within smaller narrow joined parental fully unique any analysis cases does collapsed during list ids shapes however recommend fixing elements caused exemplary main features ability analyse imagine around instead similarity accidental core diagram scipy spatial well explain key parts explore application world needs
 
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
     <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Morphological tessellation</div>
+</div>
     <div class="jb_cell">
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
@@ -254,9 +255,9 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </div>
 </div>
 
-<div class="jb_cell tag_remove_output">
+<div class="jb_cell tag_hide_output">
 
-<div class="cell border-box-sizing code_cell rendered tag_remove_output">
+<div class="cell border-box-sizing code_cell rendered tag_hide_output">
 <div class="input">
 
 <div class="inner_cell">
@@ -265,6 +266,122 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>  0%|          | 0/144 [00:00&lt;?, ?it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Inward offset...
+Discretization...
+Generating input point array...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 144/144 [00:00&lt;00:00, 314.86it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Generating Voronoi diagram...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Vertices to Polygons:  11%|█         | 3565/32914 [00:00&lt;00:00, 35641.45it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Generating GeoDataFrame...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Vertices to Polygons: 100%|██████████| 32914/32914 [00:00&lt;00:00, 33001.68it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dissolving Voronoi polygons...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre> 55%|█████▍    | 29/53 [00:00&lt;00:00, 288.49it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Preparing limit for edge resolving...
+Building R-tree...
+Identifying edge cells...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 53/53 [00:00&lt;00:00, 296.48it/s]
+100%|██████████| 42/42 [00:00&lt;00:00, 834.14it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Cutting...
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -590,9 +707,9 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </div>
 </div>
 
-<div class="jb_cell tag_remove_output">
+<div class="jb_cell tag_hide_output">
 
-<div class="cell border-box-sizing code_cell rendered tag_remove_output">
+<div class="cell border-box-sizing code_cell rendered tag_hide_output">
 <div class="input">
 
 <div class="inner_cell">
@@ -602,6 +719,50 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Loop 1 out of 2.
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Identifying changes: 100%|██████████| 2932/2932 [00:00&lt;00:00, 4103.66it/s]
+Changing geometry: 100%|██████████| 31/31 [00:00&lt;00:00, 87.32it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Loop 2 out of 2.
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Identifying changes: 100%|██████████| 2520/2520 [00:00&lt;00:00, 3346.97it/s]
+Changing geometry: 100%|██████████| 2/2 [00:00&lt;00:00, 41.79it/s]
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -654,9 +815,9 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </div>
 </div>
 
-<div class="jb_cell tag_remove_output">
+<div class="jb_cell tag_hide_output">
 
-<div class="cell border-box-sizing code_cell rendered tag_remove_output">
+<div class="cell border-box-sizing code_cell rendered tag_hide_output">
 <div class="input">
 
 <div class="inner_cell">
@@ -666,6 +827,122 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Inward offset...
+Discretization...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>  2%|▏         | 61/2521 [00:00&lt;00:08, 279.36it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Generating input point array...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 2521/2521 [00:04&lt;00:00, 534.76it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Generating Voronoi diagram...
+Generating GeoDataFrame...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Vertices to Polygons: 100%|██████████| 267595/267595 [00:07&lt;00:00, 37001.56it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dissolving Voronoi polygons...
+Preparing limit for edge resolving...
+Building R-tree...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>  8%|▊         | 28/371 [00:00&lt;00:01, 278.76it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Identifying edge cells...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 371/371 [00:01&lt;00:00, 302.84it/s]
+ 21%|██        | 50/238 [00:00&lt;00:00, 497.15it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Cutting...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 238/238 [00:00&lt;00:00, 462.72it/s]
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 

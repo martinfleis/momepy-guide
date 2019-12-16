@@ -1,23 +1,24 @@
 ---
 interact_link: content/combined/distribution.ipynb
 kernel_name: mmp_guide
+kernel_path: content/combined
 has_widgets: false
 title: |-
   Measuring spatial distribution
+pagenum: 11
 prev_page:
   url: /combined/combined.html
-  title: |-
-    Characters based on multiple geodataframes
 next_page:
   url: /combined/intensity.html
-  title: |-
-    Measuring density
 suffix: .ipynb
+search: orientation street alignment buildings not network profile cell deviation gdf height spatial distribution different elements difference cellalignment orientations captures both gdfs values left right id case building works same missing characters set mean standard measuring captured ways notebook show couple based corridor measure neighbours spatialweights needed explore cells segments need lets calculate defined longext axis bounding rectangle range cardinal directions requires unique linking really clear pattern visible might especially comparing plots principle moment generate link note userwarning tells us linked keep mind cause issues later osm ideal our part study area objects attached minsize defaulting metres either larger distance drop
 
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
     <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Measuring spatial distribution</div>
+</div>
     <div class="jb_cell">
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
@@ -48,9 +49,9 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </div>
 </div>
 
-<div class="jb_cell tag_remove_output">
+<div class="jb_cell tag_hide_output">
 
-<div class="cell border-box-sizing code_cell rendered tag_remove_output">
+<div class="cell border-box-sizing code_cell rendered tag_hide_output">
 <div class="input">
 
 <div class="inner_cell">
@@ -68,6 +69,144 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Loop 1 out of 2.
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Identifying changes: 100%|██████████| 2932/2932 [00:00&lt;00:00, 3937.90it/s]
+Changing geometry: 100%|██████████| 31/31 [00:00&lt;00:00, 90.11it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Loop 2 out of 2.
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Identifying changes: 100%|██████████| 2520/2520 [00:00&lt;00:00, 2847.54it/s]
+Changing geometry: 100%|██████████| 2/2 [00:00&lt;00:00, 49.35it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Inward offset...
+Discretization...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>  2%|▏         | 40/2521 [00:00&lt;00:06, 394.29it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Generating input point array...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 2521/2521 [00:03&lt;00:00, 648.20it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Generating Voronoi diagram...
+Generating GeoDataFrame...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Vertices to Polygons: 100%|██████████| 267595/267595 [00:07&lt;00:00, 37881.70it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dissolving Voronoi polygons...
+Preparing limit for edge resolving...
+Building R-tree...
+Identifying edge cells...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 371/371 [00:01&lt;00:00, 329.63it/s]
+ 11%|█         | 26/238 [00:00&lt;00:00, 255.17it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Cutting...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 238/238 [00:00&lt;00:00, 443.19it/s]
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -128,8 +267,8 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>100%|██████████| 2518/2518 [00:02&lt;00:00, 934.39it/s] 
-100%|██████████| 2518/2518 [00:11&lt;00:00, 222.44it/s]
+<pre>100%|██████████| 2518/2518 [00:02&lt;00:00, 1171.96it/s]
+100%|██████████| 2518/2518 [00:11&lt;00:00, 217.18it/s]
 </pre>
 </div>
 </div>
@@ -297,7 +436,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>Snapping:   4%|▍         | 113/2518 [00:00&lt;00:02, 1125.05it/s]</pre>
+<pre>Snapping:   4%|▍         | 110/2518 [00:00&lt;00:02, 1089.94it/s]</pre>
 </div>
 </div>
 </div>
@@ -315,8 +454,8 @@ Generating rtree...
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>Snapping: 100%|██████████| 2518/2518 [00:02&lt;00:00, 1185.60it/s]
-/Users/martin/Strathcloud/Personal Folders/momepy/momepy/momepy/elements.py:719: UserWarning: Some objects were not attached to the network. Set larger min_size. 240 affected elements
+<pre>Snapping: 100%|██████████| 2518/2518 [00:02&lt;00:00, 1046.46it/s]
+/Users/martin/Strathcloud/Personal Folders/momepy/momepy/momepy/elements.py:724: UserWarning: Some objects were not attached to the network. Set larger min_size. 240 affected elements
   &#34;Set larger min_size. {} affected elements&#34;.format(sum(series.isnull()))
 </pre>
 </div>
@@ -416,9 +555,9 @@ Generating rtree...
 </div>
 </div>
 
-<div class="jb_cell tag_remove_output">
+<div class="jb_cell tag_hide_output">
 
-<div class="cell border-box-sizing code_cell rendered tag_remove_output">
+<div class="cell border-box-sizing code_cell rendered tag_hide_output">
 <div class="input">
 
 <div class="inner_cell">
@@ -430,6 +569,27 @@ Generating rtree...
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 2276/2276 [00:05&lt;00:00, 389.41it/s]
+/Users/martin/anaconda3/envs/momepy_guide/lib/python3.7/site-packages/ipykernel_launcher.py:4: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  after removing the cwd from sys.path.
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 

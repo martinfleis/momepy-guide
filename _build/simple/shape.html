@@ -1,23 +1,24 @@
 ---
 interact_link: content/simple/shape.ipynb
 kernel_name: mmp_guide
+kernel_path: content/simple
 has_widgets: false
 title: |-
   Shape
+pagenum: 9
 prev_page:
   url: /simple/dimension.html
-  title: |-
-    Dimension
 next_page:
   url: /combined/combined.html
-  title: |-
-    Characters based on multiple geodataframes
 suffix: .ipynb
+search: shapes building characters while osmnx momepy network simple shape majority geodataframe measure again get data generate tessellation measures object area its elongation need volume pass series values note street osm graph functions require interaction geodataframes using spatial weights matrix calculated single assessing dimensions features notebook illustrates our example after preprocessing layer show code button right few examples measuring circular compactness ratio smallest circumsribed circle seen minimum bounding rectangle squareness mean deviation corners degrees form factor not height kahla randomly containing formfactor parameters name column np array pd any list cell theory d elements including blocks requires input retrieve returns networkx
 
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
     <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Shape</div>
+</div>
     <div class="jb_cell">
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
@@ -60,9 +61,9 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </div>
 </div>
 
-<div class="jb_cell tag_remove_output">
+<div class="jb_cell tag_hide_output">
 
-<div class="cell border-box-sizing code_cell rendered tag_remove_output">
+<div class="cell border-box-sizing code_cell rendered tag_hide_output">
 <div class="input">
 
 <div class="inner_cell">
@@ -81,6 +82,160 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Loop 1 out of 2.
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Identifying changes: 100%|██████████| 2932/2932 [00:00&lt;00:00, 3079.01it/s]
+Changing geometry: 100%|██████████| 31/31 [00:00&lt;00:00, 72.91it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Loop 2 out of 2.
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Identifying changes: 100%|██████████| 2520/2520 [00:00&lt;00:00, 3685.87it/s]
+Changing geometry: 100%|██████████| 2/2 [00:00&lt;00:00, 60.78it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Inward offset...
+Discretization...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>  2%|▏         | 42/2521 [00:00&lt;00:05, 418.79it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Generating input point array...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 2521/2521 [00:03&lt;00:00, 718.68it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Generating Voronoi diagram...
+Generating GeoDataFrame...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Vertices to Polygons: 100%|██████████| 267595/267595 [00:07&lt;00:00, 36928.98it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dissolving Voronoi polygons...
+Preparing limit for edge resolving...
+Building R-tree...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>  9%|▉         | 34/371 [00:00&lt;00:01, 335.83it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Identifying edge cells...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 371/371 [00:01&lt;00:00, 317.42it/s]
+ 21%|██        | 50/238 [00:00&lt;00:00, 492.91it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Cutting...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 238/238 [00:00&lt;00:00, 444.35it/s]
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 

@@ -1,23 +1,24 @@
 ---
 interact_link: content/simple/dimension.ipynb
 kernel_name: mmp_guide
+kernel_path: content/simple
 has_widgets: false
 title: |-
   Dimension
+pagenum: 8
 prev_page:
   url: /simple/simple.html
-  title: |-
-    Calculating simple characters
 next_page:
   url: /simple/shape.html
-  title: |-
-    Shape
 suffix: .ipynb
+search: characters using tessellation area height data work buildings only simple while momepy part new york our example building examples sense resulting values gdf stored column series where api dimension majority functions require interaction geodataframes spatial weights matrix calculated single geodataframe assessing dimensions shapes features notebook illustrates group small manhattan again osmnx get after preprocessing layer generate show code button right edge effect here buffer limit middle urban fabric anyway same elements plots makes relevant ones works both case study accessed attribute original also heights strings convert floats int fill nan zero not volume possible unlike before pass name np array
 
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
     <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Dimension</div>
+</div>
     <div class="jb_cell">
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
@@ -59,9 +60,9 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </div>
 </div>
 
-<div class="jb_cell tag_remove_output">
+<div class="jb_cell tag_hide_output">
 
-<div class="cell border-box-sizing code_cell rendered tag_remove_output">
+<div class="cell border-box-sizing code_cell rendered tag_hide_output">
 <div class="input">
 
 <div class="inner_cell">
@@ -82,6 +83,154 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Loop 1 out of 2.
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Identifying changes: 100%|██████████| 3201/3201 [00:01&lt;00:00, 3139.30it/s]
+Changing geometry: 100%|██████████| 20/20 [00:00&lt;00:00, 63.77it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Loop 2 out of 2.
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Identifying changes: 100%|██████████| 3168/3168 [00:00&lt;00:00, 3225.04it/s]
+Changing geometry: 100%|██████████| 2/2 [00:00&lt;00:00, 59.39it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Inward offset...
+Discretization...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>  1%|          | 32/3166 [00:00&lt;00:09, 313.58it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Generating input point array...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 3166/3166 [00:08&lt;00:00, 358.98it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Generating Voronoi diagram...
+Generating GeoDataFrame...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Vertices to Polygons: 100%|██████████| 497117/497117 [00:22&lt;00:00, 21887.26it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dissolving Voronoi polygons...
+Preparing limit for edge resolving...
+Building R-tree...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre> 21%|██        | 34/163 [00:00&lt;00:00, 331.79it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Identifying edge cells...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 163/163 [00:00&lt;00:00, 301.95it/s]
+100%|██████████| 95/95 [00:00&lt;00:00, 566.87it/s]
+/Users/martin/Strathcloud/Personal Folders/momepy/momepy/momepy/elements.py:429: UserWarning: Tessellation contains MultiPolygon elements. Initial objects should be edited. unique_id of affected elements: [833, 1979, 2870, 2875, 3132]
+  &#34;unique_id of affected elements: {}&#34;.format(list(uids))
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Cutting...
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 

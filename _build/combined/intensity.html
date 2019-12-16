@@ -1,23 +1,24 @@
 ---
 interact_link: content/combined/intensity.ipynb
 kernel_name: mmp_guide
+kernel_path: content/combined
 has_widgets: false
 title: |-
   Measuring density
+pagenum: 12
 prev_page:
   url: /combined/distribution.html
-  title: |-
-    Measuring spatial distribution
 next_page:
   url: /weights/weights.html
-  title: |-
-    Using spatial weights matrix
 suffix: .ipynb
+search: area building density momepy our tessellation examples covered ratio requires spatial areas measuring urban api intensity notebook data edge using values geodataframe containing objects buildings calculate floor gdf far weights typical exercise analytics allows measure different types docs org en latest html outline main principles again osmnx get example after preprocessing layer generate effect here buffer limit middle fabric work anyway keep mind skewed case measured cells unit cell plot covering top currently passed both gdfs unique id links together units either before pass series directly note preparing duplicated within used causing value because heights also part new york height
 
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
     <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Measuring density</div>
+</div>
     <div class="jb_cell">
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
@@ -59,9 +60,9 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </div>
 </div>
 
-<div class="jb_cell tag_remove_output">
+<div class="jb_cell tag_hide_output">
 
-<div class="cell border-box-sizing code_cell rendered tag_remove_output">
+<div class="cell border-box-sizing code_cell rendered tag_hide_output">
 <div class="input">
 
 <div class="inner_cell">
@@ -81,6 +82,154 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Loop 1 out of 2.
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Identifying changes: 100%|██████████| 3201/3201 [00:00&lt;00:00, 3753.96it/s]
+Changing geometry: 100%|██████████| 20/20 [00:00&lt;00:00, 68.43it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Loop 2 out of 2.
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Identifying changes: 100%|██████████| 3168/3168 [00:00&lt;00:00, 4162.82it/s]
+Changing geometry: 100%|██████████| 2/2 [00:00&lt;00:00, 60.73it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Inward offset...
+Discretization...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>  1%|          | 33/3166 [00:00&lt;00:09, 328.67it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Generating input point array...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 3166/3166 [00:08&lt;00:00, 386.00it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Generating Voronoi diagram...
+Generating GeoDataFrame...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Vertices to Polygons: 100%|██████████| 497117/497117 [00:13&lt;00:00, 37484.10it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dissolving Voronoi polygons...
+Preparing limit for edge resolving...
+Building R-tree...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre> 22%|██▏       | 36/163 [00:00&lt;00:00, 358.69it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Identifying edge cells...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 163/163 [00:00&lt;00:00, 330.03it/s]
+100%|██████████| 95/95 [00:00&lt;00:00, 641.39it/s]
+/Users/martin/Strathcloud/Personal Folders/momepy/momepy/momepy/elements.py:429: UserWarning: Tessellation contains MultiPolygon elements. Initial objects should be edited. unique_id of affected elements: [833, 1979, 2870, 2875, 3132]
+  &#34;unique_id of affected elements: {}&#34;.format(list(uids))
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Cutting...
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -138,9 +287,9 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </div>
 </div>
 
-<div class="jb_cell tag_remove_output">
+<div class="jb_cell tag_hide_output">
 
-<div class="cell border-box-sizing code_cell rendered tag_remove_output">
+<div class="cell border-box-sizing code_cell rendered tag_hide_output">
 <div class="input">
 
 <div class="inner_cell">

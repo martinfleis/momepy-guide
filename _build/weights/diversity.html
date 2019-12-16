@@ -1,23 +1,24 @@
 ---
 interact_link: content/weights/diversity.ipynb
 kernel_name: mmp_guide
+kernel_path: content/weights
 has_widgets: false
 title: |-
   Measuring diversity
+pagenum: 16
 prev_page:
   url: /weights/examples.html
-  title: |-
-    Examples of usage
 next_page:
   url: /weights/two.html
-  title: |-
-    Using two spatial weights matrices
 suffix: .ipynb
+search: diversity index binning range values momepy using contiguity effect theil capture based tessellation queen weights however head tail breaks characters again get matrix reason neighbours above large outliers keyword limit into measure simpsons measuring important cities complicated offers several options urban morphometrics generally distinguish three types absolute relative categorization notebook provides examples osmnx data our example after preprocessing building layer generate morphological allows while libpysal classic might not enough proper context swhigh within set topological distance k generating spatial weightsnb character whose measured area simple sounds measures withing captured spatialweights plot massive scale buildings seen define rng argument taken account
 
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
     <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Measuring diversity</div>
+</div>
     <div class="jb_cell">
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
@@ -65,9 +66,9 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </div>
 </div>
 
-<div class="jb_cell tag_remove_output">
+<div class="jb_cell tag_hide_output">
 
-<div class="cell border-box-sizing code_cell rendered tag_remove_output">
+<div class="cell border-box-sizing code_cell rendered tag_hide_output">
 <div class="input">
 
 <div class="inner_cell">
@@ -85,6 +86,160 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Loop 1 out of 2.
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Identifying changes: 100%|██████████| 2932/2932 [00:00&lt;00:00, 4911.85it/s]
+Changing geometry: 100%|██████████| 31/31 [00:00&lt;00:00, 60.16it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Loop 2 out of 2.
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Identifying changes: 100%|██████████| 2520/2520 [00:00&lt;00:00, 3314.04it/s]
+Changing geometry: 100%|██████████| 2/2 [00:00&lt;00:00, 37.00it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Inward offset...
+Discretization...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>  2%|▏         | 43/2521 [00:00&lt;00:05, 426.19it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Generating input point array...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 2521/2521 [00:03&lt;00:00, 647.70it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Generating Voronoi diagram...
+Generating GeoDataFrame...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Vertices to Polygons: 100%|██████████| 267595/267595 [00:06&lt;00:00, 39429.12it/s]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dissolving Voronoi polygons...
+Preparing limit for edge resolving...
+Building R-tree...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre> 18%|█▊        | 65/371 [00:00&lt;00:00, 315.92it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Identifying edge cells...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 371/371 [00:01&lt;00:00, 334.28it/s]
+ 24%|██▎       | 56/238 [00:00&lt;00:00, 546.20it/s]</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Cutting...
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 238/238 [00:00&lt;00:00, 513.26it/s]
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -181,7 +336,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>100%|██████████| 2518/2518 [00:03&lt;00:00, 692.41it/s]
+<pre>100%|██████████| 2518/2518 [00:03&lt;00:00, 768.12it/s]
 </pre>
 </div>
 </div>
@@ -266,7 +421,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>100%|██████████| 2518/2518 [00:03&lt;00:00, 708.50it/s]
+<pre>100%|██████████| 2518/2518 [00:03&lt;00:00, 685.81it/s]
 </pre>
 </div>
 </div>
@@ -352,7 +507,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>100%|██████████| 2518/2518 [00:05&lt;00:00, 434.41it/s]
+<pre>100%|██████████| 2518/2518 [00:05&lt;00:00, 434.18it/s]
 </pre>
 </div>
 </div>
@@ -519,9 +674,9 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </div>
 </div>
 
-<div class="jb_cell tag_remove_output">
+<div class="jb_cell tag_hide_output">
 
-<div class="cell border-box-sizing code_cell rendered tag_remove_output">
+<div class="cell border-box-sizing code_cell rendered tag_hide_output">
 <div class="input">
 
 <div class="inner_cell">
@@ -533,6 +688,37 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/martin/anaconda3/envs/momepy_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:86: DeprecationWarning: Call to deprecated function (or staticmethod) headTail_breaks. (use head_tail_breaks)
+  return headTail_breaks(values[values &gt;= mean], cuts)
+/Users/martin/anaconda3/envs/momepy_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:86: DeprecationWarning: Call to deprecated function (or staticmethod) headTail_breaks. (use head_tail_breaks)
+  return headTail_breaks(values[values &gt;= mean], cuts)
+/Users/martin/anaconda3/envs/momepy_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:86: DeprecationWarning: Call to deprecated function (or staticmethod) headTail_breaks. (use head_tail_breaks)
+  return headTail_breaks(values[values &gt;= mean], cuts)
+/Users/martin/anaconda3/envs/momepy_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:86: DeprecationWarning: Call to deprecated function (or staticmethod) headTail_breaks. (use head_tail_breaks)
+  return headTail_breaks(values[values &gt;= mean], cuts)
+/Users/martin/anaconda3/envs/momepy_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:86: DeprecationWarning: Call to deprecated function (or staticmethod) headTail_breaks. (use head_tail_breaks)
+  return headTail_breaks(values[values &gt;= mean], cuts)
+/Users/martin/anaconda3/envs/momepy_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:86: DeprecationWarning: Call to deprecated function (or staticmethod) headTail_breaks. (use head_tail_breaks)
+  return headTail_breaks(values[values &gt;= mean], cuts)
+/Users/martin/anaconda3/envs/momepy_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:86: DeprecationWarning: Call to deprecated function (or staticmethod) headTail_breaks. (use head_tail_breaks)
+  return headTail_breaks(values[values &gt;= mean], cuts)
+ 11%|█         | 278/2518 [00:00&lt;00:04, 553.75it/s]/Users/martin/anaconda3/envs/momepy_guide/lib/python3.7/site-packages/mapclassify/classifiers.py:804: RuntimeWarning: invalid value encountered in double_scalars
+  gadf = 1 - self.adcm / adam
+100%|██████████| 2518/2518 [00:05&lt;00:00, 488.10it/s]
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 
