@@ -11,7 +11,7 @@ prev_page:
 next_page:
   url: /simple/simple.html
 suffix: .ipynb
-search: momepy id nodes edges network graph elements street buildings tessellation ids edge together gdf link only linking explained chapter element needs scale also blocks both unique minsize should box building not same usually need based analysis node end merge columns data structure relies links between different morphological small relevant higher case block previous generates getting notebook explore offers getnetworkid simply returns series analysed illustration bubenec dataset embedded sure streets segments argument might want value such build centred centroid size priori least segment intersected sort tolerance note colormap does enough colours why everything top left looks situation slightly complicated dont even
+search: momepy id nodes edges network graph street buildings tessellation elements ids edge gdf link only explained chapter element needs scale also blocks together both unique minsize should box building not same usually need based analysis node end merge columns data structure relies links between different morphological small relevant higher case block previous generates getting notebook explore linking offers getnetworkid simply returns series analysed illustration bubenec dataset embedded sure streets segments argument might want value such build centred centroid size priori least segment intersected sort tolerance note colormap does enough colours why everything top left looks situation slightly complicated dont even
 
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
@@ -23,7 +23,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Linking-elements-together">Linking elements together<a class="anchor-link" href="#Linking-elements-together"> </a></h1><p>As explained in the Data Structure chapter, <code>momepy</code> relies on links between different morphological elements. Each element needs ID, and each of the small-scale elements also needs to know the ID of the relevant higher-scale element. The case of block ID is explained in the previous chapter, <code>momepy.Blocks</code> generates it together with blocks gdf.</p>
+<p>As explained in the Data Structure chapter, <code>momepy</code> relies on links between different morphological elements. Each element needs ID, and each of the small-scale elements also needs to know the ID of the relevant higher-scale element. The case of block ID is explained in the previous chapter, <code>momepy.Blocks</code> generates it together with blocks gdf.</p>
 <h2 id="Getting-the-ID-of-the-street-network">Getting the ID of the street network<a class="anchor-link" href="#Getting-the-ID-of-the-street-network"> </a></h2><p>This notebook will explore how to link street network, both nodes and edges, to buildings and tessellation.</p>
 <h3 id="Edges">Edges<a class="anchor-link" href="#Edges"> </a></h3><p>For linking street network edges to buildings (or tessellation or other elements), <code>momepy</code> offers <code>momepy.get_network_id</code>. It simply returns a <code>Series</code> of network IDs for analysed gdf.</p>
 
