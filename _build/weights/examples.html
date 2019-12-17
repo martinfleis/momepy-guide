@@ -11,7 +11,7 @@ prev_page:
 next_page:
   url: /weights/diversity.html
 suffix: .ipynb
-search: weights mean spatial example tessellation order density building contiguity distance calculate between character weighted notebook illustrate again get our generate neighbours buildings need queen relationship value nan higher capture vicinity illustrated based average averagecharacter another same gross floor areas used across momepy its three examples osmnx data after preprocessing layer neighbouring capturing immediate here represented relationships cells note neighbour denoted spatialweights set np geopandas older rows removed before plotting natural breaks scheme however typical usage feature previous weightsnb multiple options morphological selected within cell plot simple defaults cases might want eliminate effect outliers specify range should below measure only interquartile
+search: weights mean spatial example tessellation order density building contiguity distance calculate between character weighted notebook illustrate again get our layer generate neighbours buildings need queen relationship value nan higher capture vicinity illustrated based average averagecharacter another same gross floor areas used across momepy its three examples osmnx data after preprocessing neighbouring capturing immediate here represented relationships cells note neighbour denoted spatialweights set np geopandas older rows removed before plotting natural breaks scheme however typical usage feature previous weightsnb multiple options morphological selected within cell plot simple defaults cases might want eliminate effect outliers specify range should below measure only interquartile
 
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
@@ -53,7 +53,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We will again use <code>osmnx</code> to get the data for our example and after preprocessing of building layer will generate tessellation.</p>
+<p>We will again use <code>osmnx</code> to get the data for our example and after preprocessing of building layer will generate tessellation layer.</p>
 
 </div>
 </div>
@@ -300,6 +300,17 @@ Building R-tree...
 </div>
 </div>
 
+<div class="jb_cell tag_popout">
+
+<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Note:</strong> If there is no neighbour for a building denoted in <code>spatial_weights</code>, the value is set to <code>np.nan</code>. In GeoPandas older than 0.7.0, rows with NaN have to be removed before plotting with natural breaks scheme.</p>
+
+</div>
+</div>
+</div>
+</div>
+
 <div class="jb_cell">
 
 <div class="cell border-box-sizing code_cell rendered">
@@ -314,17 +325,6 @@ Building R-tree...
 </div>
 </div>
 
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Note:</strong> If there is no neighbour for a building denoted in <code>spatial_weights</code>, the value is set to <code>np.nan</code>. In GeoPandas older than 0.7.0, rows with NaN have to be removed before plotting with natural breaks scheme.</p>
-
-</div>
-</div>
 </div>
 </div>
 
