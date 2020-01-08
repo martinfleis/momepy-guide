@@ -11,7 +11,7 @@ prev_page:
 next_page:
   url: 
 suffix: .ipynb
-search: centrality graph node network closeness street momepy distance edge betweenness edges global measure using primal angular based nodes dual analysis used local radius weight same not while porta our within through gdf every attribute measures times does between mca approach developed aim understand importance intersection whole centralities notebook et al linestring geodataframe point osm above networkx similar back options straightforward measured only specify topological e g steps metric segment parameter default length again bit note walk betweennes straightness both geographical attached segments intersections start end connecting angle much multiple assessment latora its main structure cities perspective position expressed various types
+search: centrality graph node network closeness street momepy distance measure edge betweenness edges global using primal local angular based nodes dual analysis used radius weight same not while porta our within through gdf options every topological metric attribute measures times does between segments end topologically mca approach developed aim understand importance intersection whole centralities notebook et al case linestring geodataframe point osm above networkx similar back straightforward measured only specify e g steps lenght segment parameter default length again bit note walk betweennes straightness both geographical attached intersections start metrically moreover connecting angle much multiple assessment latora its main structure cities
 
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
@@ -785,6 +785,31 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Topological-vs-metric-distances">Topological vs metric distances<a class="anchor-link" href="#Topological-vs-metric-distances"> </a></h3><p>Centrality can be measure topologically (ignoring physical lenght of street segments) or metrically. Moreover, in the case of local centrality, local subgraph can be also defined topologically and metrically. In the end, you have four options how to measure centralilty, illustrated on <code>local_betweenness_centrality</code>:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+# topologically defined subgraph (5 steps) and topologically measured shortest path in betweenness
+local_betweenness_centrality(graph, radius=5, name='betweenness', distance=None, weight=None)
+
+# topologically defined subgraph (5 steps) and metrically measured shortest path in betweenness
+local_betweenness_centrality(graph, radius=5, name='betweenness', distance=None, weight='edge_length')
+
+# metrically defined subgraph (800 meters) and topologically measured shortest path in betweenness
+local_betweenness_centrality(graph, radius=800, name='betweenness', distance='edge_length', weight=None)
+
+# metrically defined subgraph (800 meters) and metrically measured shortest path in betweenness
+local_betweenness_centrality(graph, radius=800, name='betweenness', distance='edge_length', weight='edge_length')
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Dual-graph">Dual graph<a class="anchor-link" href="#Dual-graph"> </a></h2><p>Dual graph is a bit more complicated concept as it represents street segments as nodes while intersections as edges connecting nodes. The geographical distance is lost as edges are of virtually no length, but we can capture the angle between each connected streets. Momepy does that by default, using angles between lines connecting start and end points of each segment. Hence, we can measure angular centrality.</p>
 
 </div>
@@ -893,7 +918,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 
 <div class="output_png output_subarea ">
-<img src="../images/graph/centrality_38_0.png"
+<img src="../images/graph/centrality_40_0.png"
 >
 </div>
 
@@ -961,7 +986,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 
 <div class="output_png output_subarea ">
-<img src="../images/graph/centrality_41_0.png"
+<img src="../images/graph/centrality_43_0.png"
 >
 </div>
 
@@ -1041,7 +1066,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 
 <div class="output_png output_subarea ">
-<img src="../images/graph/centrality_44_1.png"
+<img src="../images/graph/centrality_46_1.png"
 >
 </div>
 
