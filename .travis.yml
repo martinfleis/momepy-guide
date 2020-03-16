@@ -4,10 +4,10 @@ python:
 
 matrix:
   include:
-    - env: ENV_FILE="environment.yaml"
-    - env: ENV_FILE="environment-dev.yaml"
+    - env: ENV_FILE="environment.yml"
+    - env: ENV_FILE="environment-dev.yml"
   allow_failures:
-    - env: ENV_FILE="environment-dev.yaml"
+    - env: ENV_FILE="environment-dev.yml"
 
 install:
   - sudo apt update
