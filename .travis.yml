@@ -3,11 +3,11 @@ python:
   - 3.7
 
 matrix:
-include:
-  - env: ENV_FILE="environment.yaml"
-  - env: ENV_FILE="environment-dev.yaml"
-allow_failures:
-  - env: ENV_FILE="environment-dev.yaml"
+  include:
+    - env: ENV_FILE="environment.yaml"
+    - env: ENV_FILE="environment-dev.yaml"
+  allow_failures:
+    - env: ENV_FILE="environment-dev.yaml"
 
 install:
   - sudo apt update
