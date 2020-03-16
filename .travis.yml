@@ -2,6 +2,13 @@ language: python
 python:
   - 3.7
 
+matrix:
+include:
+  - env: ENV_FILE="environment.yaml"
+  - env: ENV_FILE="environment-dev.yaml"
+allow_failures:
+  - env: ENV_FILE="environment-dev.yaml"
+
 install:
   - sudo apt update
   - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
@@ -13,7 +20,7 @@ install:
   - conda config --add channels conda-forge
   - conda config --set channel_priority strict
   - conda info -a
-  - conda env create -f environment.yml
+  - conda env create --file="${ENV_FILE}"
   - source activate momepy_guide
   - conda list
   - python -m ipykernel install --user --name mmp_guide --display-name "Python (momepy_guide)"

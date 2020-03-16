@@ -11,9 +11,9 @@ dependencies:
   - matplotlib
   - rtree
   - osmnx
-  - momepy
   - jupyter
   - pip
   - pip:
     - inequality
     - jupyter-book
+    - git+https://github.com/martinfleis/momepy.git
