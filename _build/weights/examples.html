@@ -11,7 +11,7 @@ prev_page:
 next_page:
   url: /weights/diversity.html
 suffix: .ipynb
-search: weights mean spatial example tessellation order density building contiguity distance calculate between character weighted notebook illustrate again get our layer generate neighbours buildings need queen relationship value nan higher capture vicinity illustrated based average averagecharacter another same gross floor areas used across momepy its three examples osmnx data after preprocessing neighbouring capturing immediate here represented relationships cells note neighbour denoted spatialweights set np geopandas older rows removed before plotting natural breaks scheme however typical usage feature previous weightsnb multiple options morphological selected within cell plot simple defaults cases might want eliminate effect outliers specify range should below measure only interquartile
+search: mean weights spatial example tessellation order density building contiguity distance calculate between character median weighted notebook illustrate again get our layer generate neighbours buildings need queen relationship value nan higher capture vicinity illustrated based average averagecharacter measure mode using only another same gross floor areas used across momepy its three examples osmnx data after preprocessing neighbouring capturing immediate here represented relationships cells note neighbour denoted spatialweights set np geopandas older rows removed before plotting natural breaks scheme however typical usage feature previous weightsnb multiple options morphological selected within cell plot simple defaults accessed series return cases might want eliminate effect
 
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
@@ -398,7 +398,7 @@ Building R-tree...
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Average-character">Average character<a class="anchor-link" href="#Average-character"> </a></h3><p>Mean value of selected character within a vicinity of each cell (or building, plot) is a simple example. <code>AverageCharacter</code> defaults to mean:</p>
+<h3 id="Average-character">Average character<a class="anchor-link" href="#Average-character"> </a></h3><p>Mean value of selected character within a vicinity of each cell (or building, plot) is a simple example. <code>AverageCharacter</code> can measure mean, median or mode and defaults to <code>all</code>. Each of them can be accessed using <code>.mean</code>, <code>.median</code> or <code>.mode</code>. <code>.series</code> will return mean.</p>
 
 </div>
 </div>
@@ -415,7 +415,7 @@ Building R-tree...
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">areas</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">Area</span><span class="p">(</span><span class="n">tessellation</span><span class="p">)</span><span class="o">.</span><span class="n">series</span>
 <span class="n">mean_area</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">AverageCharacter</span><span class="p">(</span>
     <span class="n">tessellation</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">areas</span><span class="p">,</span> <span class="n">spatial_weights</span><span class="o">=</span><span class="n">sw3</span><span class="p">,</span> <span class="n">unique_id</span><span class="o">=</span><span class="s1">&#39;uID&#39;</span><span class="p">)</span>
-<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;mean_area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean_area</span><span class="o">.</span><span class="n">series</span>
+<span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;mean_area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean_area</span><span class="o">.</span><span class="n">mean</span>
 </pre></div>
 
     </div>
@@ -498,7 +498,7 @@ Building R-tree...
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;mean_area_iq&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">AverageCharacter</span><span class="p">(</span>
-    <span class="n">tessellation</span><span class="p">,</span> <span class="n">areas</span><span class="p">,</span> <span class="n">sw3</span><span class="p">,</span> <span class="s1">&#39;uID&#39;</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">75</span><span class="p">))</span><span class="o">.</span><span class="n">series</span>
+    <span class="n">tessellation</span><span class="p">,</span> <span class="n">areas</span><span class="p">,</span> <span class="n">sw3</span><span class="p">,</span> <span class="s1">&#39;uID&#39;</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">75</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span>
 </pre></div>
 
     </div>
@@ -566,7 +566,7 @@ Building R-tree...
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Another option would be to calculate median:</p>
+<p>Another option would be to calculate median only:</p>
 
 </div>
 </div>
@@ -581,7 +581,7 @@ Building R-tree...
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tessellation</span><span class="p">[</span><span class="s1">&#39;med_area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">momepy</span><span class="o">.</span><span class="n">AverageCharacter</span><span class="p">(</span>
-    <span class="n">tessellation</span><span class="p">,</span> <span class="n">areas</span><span class="p">,</span> <span class="n">sw3</span><span class="p">,</span> <span class="s1">&#39;uID&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">series</span>
+    <span class="n">tessellation</span><span class="p">,</span> <span class="n">areas</span><span class="p">,</span> <span class="n">sw3</span><span class="p">,</span> <span class="s1">&#39;uID&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span>
 </pre></div>
 
     </div>
